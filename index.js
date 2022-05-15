@@ -1,4 +1,4 @@
-import REVIEWS from "./reviews";
+import REVIEWS from "https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/reviews.js";
 
 const reviewsWrapper = document.getElementById("reviews");
 
