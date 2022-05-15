@@ -1,4 +1,4 @@
-import REVIEWS from "./reviews.js";
+// import REVIEWS from "./reviews.js";
 
 // const utilsFile = await fetch("https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/reviews.min.js");
 //   const utilsText = await utilsFile.text();
@@ -45,3 +45,5 @@ const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
 reviewsTriggerBtn.addEventListener("click", () => {
   fetchReviews();
 });
+
+console.log('executing script');
