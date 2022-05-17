@@ -1,4 +1,4 @@
-// import REVIEWS from "./reviews.js";
+import REVIEWS from "./reviews.js";
 
 // const utilsFile = await fetch("https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/reviews.min.js");
 //   const utilsText = await utilsFile.text();
