@@ -4,37 +4,131 @@
 
 html {
   height: 100%;
+  font-family: "Raleway", Arial, sans-serif;
+}
+
+#reviews {
+  background-color: #FFF5EC;
+  padding: 2em 0.3em;
+  margin-bottom: 30vh;
+}
+#reviews .eureka-title {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #3E005B;
 }
 .reviews_container {
-  background-color: #212121;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: wrap;
-  margin: 0;
-  height: 100%;
-  color: #fff;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-flow: wrap; */
+  /* margin: 0; */
+  /* height: 100%; */
+  /* color: #fff; */
 }
 .review {
-  font-family: "Raleway", Arial, sans-serif;
+  box-sizing: border-box;
+  
+  /* Auto layout */
+
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* padding: 40px 24px; */
+  /* gap: 16px; */
+  /* max-width: 25vw; */
+  /* min-height: 20vh; */
+  width: 30vw;
+  height: 35vh;
+
+  border: 2px solid #FF7A00;
+  border-radius: 32px;
+
   position: relative;
+
+  /* Inside auto layout */
+
+  /* flex: none;
+  order: 1;
+  flex-grow: 0; */
+}
+
+.review_text {  
+  margin-top: 12%;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
+
+  text-align: center;
+
+  color: #000000;
+
+
+  /* Inside auto layout */
+
+  /* flex: none;
+  order: 0;
+  flex-grow: 0; */
+}
+
+.review_author {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 150%;
+  /* identical to box height, or 33px */
+
+  text-align: center;
+
+  color: #3E005B;
+
+
+  /* Inside auto layout */
+
+  /* flex: none;
+  order: 1;
+  flex-grow: 0; */
+}
+.review_city {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  text-transform: uppercase;
+}
+
+.review {
+  /* position: relative;
   overflow: hidden;
   margin: 10px;
   min-width: 220px;
   max-width: 310px;
-  /* height: 400px; */
   width: 100%;
   color: #333;
   text-align: left;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #ffffff; */
 }
 .review * {
-  -webkit-box-sizing: border-box;
+  /* -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-  transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+  transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9); */
 }
 .review_author_img {
   width: 100%;
@@ -43,46 +137,46 @@ html {
   object-fit: contain;
 }
 .review_text {
-  position: relative;
+  /* position: relative;
   padding: 25px 50px 25px 50px;
   font-size: 0.8em;
   font-weight: 500;
   text-align: left;
   margin: 0;
   line-height: 1.6em;
-  font-style: italic;
+  font-style: italic; */
 }
 .review_text::before,
 .review_text::after {
-  font-family: "FontAwesome";
+  /* font-family: "FontAwesome";
   content: "\201C";
   position: absolute;
   font-size: 50px;
   opacity: 0.3;
-  font-style: normal;
+  font-style: normal; */
 }
 .review_text::before {
-  top: 25px;
-  left: 20px;
+  /* top: 25px;
+  left: 20px; */
 }
 .review_text::after {
-  content: "\201D";
+  /* content: "\201D";
   right: 20px;
-  bottom: 0;
+  bottom: 0; */
 }
 .review_arrow {
-  top: 100%;
+  /* top: 100%;
   width: 0;
   height: 0;
   border-left: 0 solid transparent;
   border-right: 25px solid transparent;
   border-top: 25px solid #fff;
   margin: 0;
-  position: absolute;
+  position: absolute; */
   /* z-index: 10; */
 }
 .review_author {
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   width: 100%;
   padding: 5px 25px;
@@ -92,7 +186,7 @@ html {
   text-transform: uppercase;
   opacity: 0.8;
   margin: 0;
-  font-weight: 800;
+  font-weight: 800; */
 }
 #reviews-tigger-btn {
   background-color: #b9fa02;
