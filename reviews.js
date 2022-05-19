@@ -2,7 +2,7 @@ const REVIEWS = [
   {
     id: 0,
     author: "Alison Kaplan",
-    text: 'The lunches are perfect as our kitchen is under construction and I can\'t prepare ""real"" meals for the kids.',
+    text: 'The lunches are perfect as our kitchen is under construction and I can\'t prepare "real" meals for the kids.',
     img:
       "https://cdn-cmhkh.nitrocdn.com/TezMmPgFmiYDBaHMYdPwMCWAKAYkIeiI/assets/static/optimized/www.theloremipsumco.com/wp-content/uploads/2014/04/73e4a3fe6ad959478d8562505bf1e43e.pic7_3000x2003-e1482875351271.jpg",
     lat: "18.180555",
