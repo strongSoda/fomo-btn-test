@@ -69,7 +69,9 @@ function fetchReviews() {
   const reviews_container = document.createElement("div");
   reviews_container.classList.add("reviews_container");
 
-  REVIEWS.slice(0,3).forEach((r) => {
+  const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
+  
+  threeRandomReviews.forEach((r) => {
     const review = document.createElement("div");
     const review_text = document.createElement("p");
     const review_author = document.createElement("p");
