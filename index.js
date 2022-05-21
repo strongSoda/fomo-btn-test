@@ -4,8 +4,7 @@ const modalWrapper = `
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close-button">&times;</span>
-    <p class="loading-text">Finding nearest reviews...</p>
-        <h3 class="eureka-title">Read reviews from your friends</h3>
+        <h3 class="eureka-title">Searching for nearest reviews ...</h3>
         <div id="reviews-content">
           <div class="cssload-box-loading">
           </div>
@@ -59,7 +58,7 @@ function fetchReviews() {
   const modal = document.getElementById("modal");
   const closeButton = document.querySelector(".close-button");
   const reviewsContent = document.getElementById("reviews-content");
-  const loadingText = document.querySelector(".loading-text");
+  const loadingText = document.querySelector(".eureka-title");
 
   closeButton.addEventListener("click", () => {
       modal.classList.toggle("show-modal");
@@ -105,8 +104,8 @@ function fetchReviews() {
   setTimeout(() => {
     reviewsContent.innerHTML = ''
     reviewsContent.appendChild(reviews_container)
-    loadingText.innerHTML = 'TESTIMONIALS'
-  }, 2000)
+    loadingText.innerHTML = 'Reviews from your neighbors'
+  }, 3000)
   setTimeout(() => {
     modal.classList.toggle("show-modal");
   }, 100)
