@@ -70,17 +70,19 @@ function fetchReviews() {
   reviews_container.classList.add("reviews_container");
 
   const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
-  
+
   threeRandomReviews.forEach((r) => {
     const review = document.createElement("div");
-    const review_text = document.createElement("p");
+    const review_text = document.createElement("blockquote");
+    const review_text_h3 = document.createElement("h3");
     const review_author = document.createElement("p");
     const review_city = document.createElement("p");
     const review_bottom = document.createElement("div");
     // const review_author_img = document.createElement("img");
     // const review_arrow = document.createElement("div");
 
-    review_text.innerHTML = r.text;
+    review_text_h3.innerHTML = r.text;
+    review_text.appendChild(review_text_h3)
     review.appendChild(review_text);
     // review_text.appendChild(review_arrow);
     // review_author_img.src = r.img;

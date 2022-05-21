@@ -6,15 +6,15 @@
   height: 100%;
 } */
 
-.review_text::-webkit-scrollbar {
+.review_text h3::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 7px;
+  width: 5px;
 }
 
-.review_text::-webkit-scrollbar-thumb {
+.review_text h3::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, .5);
-  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  background-color: rgba(0, 0, 0, .3);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .3);
 }
 
 .modal {
@@ -99,7 +99,7 @@
 .review {
   box-sizing: border-box;
   width: 30vw;
-  height: 40vh;
+  height: 35vh;
   padding: 1em;
 
   border: 2px solid #FF7A00;
@@ -109,6 +109,10 @@
 }
 
 .review_text {
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+.review_text h3{
   position: relative;
   top: 12%;
   /* margin-bottom: 20vh; */
@@ -117,13 +121,33 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 150%;
-  height: 110px;
+  max-height: 110px;
   overflow: auto;
   /* or 27px */
 
   text-align: center;
 
   color: #000000;
+}
+
+.review_text::before {
+  content: open-quote;
+  font-weight: bold;
+  font-size: 60px;
+  color: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  left: 30px;
+}
+
+.review_text::after {
+  content: close-quote;
+  font-weight: bold;
+  font-size: 60px;
+  color: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 120px;
+  right: 30px;
 }
 
 .review_bottom {
