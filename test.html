@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This a test site</h1>
+
+
+    <!-- Eureka reiviews plugin -->
+    <!-- Paste this code at the place you want the button to appear -->
+    <link href="https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/styles.css" rel="stylesheet" />
+    <button id="reviews-tigger-btn" data-site-id="lunchbreak">
+        Read reviews from my friends
+    </button>
+    <div id="reviews"></div>
+    <script src="https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/reviews.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/index.js"></script>
+    <!-- Eureka reiviews plugin -->
+    <!-- --------- END --------- -->
+
+    <script>
+        const button = document.querySelector('#reviews-tigger-btn')
+        console.log(button.dataset.siteId);
+    </script>
+</body>
+</html>

@@ -75,9 +75,6 @@
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-#reviews {
-  /* margin-bottom: 30vh; */
-}
 #reviews .eureka-title {
   font-family: 'Raleway';
   font-style: normal;
@@ -188,7 +185,7 @@
   /* identical to box height */
 
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   color: #FFFFFF;
   
