@@ -172,7 +172,7 @@
   font-weight: bold;
 }
 
-#reviews-tigger-btn {
+#reviews-tigger-btn, #cta {
   background-color: #2CC0CE;
   padding: .8em 2em;
   margin-top: 10px;
@@ -192,6 +192,15 @@
   cursor: pointer;
   border: none;
   /* text-transform: uppercase; */
+}
+
+#cta {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  margin-bottom: 10px;
+  width: fit-content;
+  text-decoration: none;
 }
 
 .cssload-box-loading {
