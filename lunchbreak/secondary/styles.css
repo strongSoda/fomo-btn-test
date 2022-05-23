@@ -149,9 +149,10 @@
 
 .review_bottom {
   text-align: center;
+  width: 100%;
   position: absolute;
-  bottom: 20px;
-  left: 30%;
+  bottom: 0;
+  left: 0;
 }
 
 .review_author {
@@ -173,7 +174,7 @@
 }
 
 #reviews-tigger-btn, #cta {
-  background-color: #2CC0CE;
+  background-color: #F15645;
   padding: .8em 2em;
   margin-top: 10px;
   width: fit-content;
