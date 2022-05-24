@@ -14,7 +14,7 @@ const modalWrapper = `
 
 // const title = '<h3 class="eureka-title">Read reviews from your friends</h3>'
 // const closeBtn = '<span class="close">&times;</span>'
-// const ctaBtn = '<a id="cta" href="https://lunchbreak4kids.com/meal-plans/">Get Started</a>'
+const ctaBtn = '<a id="cta" href="https://app.squarespacescheduling.com/schedule.php?owner=23738166">Schedule a Tour</a>'
 
 const getLocationFromIP = async () => {
   const res = await fetch(
@@ -110,7 +110,7 @@ function fetchReviews() {
     reviewsContent.innerHTML = ''
     reviewsContent.appendChild(reviews_container)
     loadingText.innerHTML = 'Reviews from your neighbors'
-    // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
+    reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
   }, 3000)
   setTimeout(() => {
     modal.classList.toggle("show-modal");
