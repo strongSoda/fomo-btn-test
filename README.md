@@ -1,4 +1,4 @@
-## Ureka button
+## FOMO Button
 
 ### Steps for adding a new client
 
@@ -24,7 +24,7 @@
 5. Get the plugin code to embed for new client by substituting value for `client_folder_name` in the following template at all appropriate places. This will work after code is in master branch.
 
 ```html
-<!-- Eureka reiviews plugin -->
+<!-- Start FOMO Button -->
 <!-- Paste this code at the place you want the button to appear -->
 <link
   href="https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/{client_folder_name}/styles.min.css"
@@ -36,6 +36,6 @@
 <div id="reviews"></div>
 <script src="https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/{client_folder_name}/reviews.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/strongSoda/fomo-btn-test/{client_folder_name}/index.min.js"></script>
-<!-- Eureka reiviews plugin -->
+<!-- End FOMO Button -->
 <!-- --------- END --------- -->
 ```
