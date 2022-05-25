@@ -1,4 +1,4 @@
-## Eureka button
+## Ureka button
 
 ### Steps for adding a new client
 
