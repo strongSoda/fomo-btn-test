@@ -92,7 +92,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary m-auto" href="https://lunchbreak4kids.com/meal-plans/">Get Started</a>'
+const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary m-auto" href="https://app.squarespacescheduling.com/schedule.php?owner=23738166">Schedule Tour</a>'
 
 let MY_LOCATION = null
 
