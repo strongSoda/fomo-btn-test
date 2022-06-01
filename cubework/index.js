@@ -145,7 +145,7 @@ const getLocationFromBrowser = async () => {
 
 const getLocationFromIP = async () => {
   const res = await fetch(
-    "http://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
+    "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
   );
   const data = await res?.json();
   // console.log(data);
