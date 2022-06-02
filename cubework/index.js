@@ -1,20 +1,98 @@
-const reviewsWrapper = document.getElementById("reviews");
-
 const modalWrapper = `
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <h3 class="eureka-title">Searching for nearest reviews ...</h3>
-    <div id="reviews-content">
-      <div class="cssload-box-loading">
-      </div>
-    </div>
-  </div>
-</div>`
+<div class="ureka-modal fade" id="ureka-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title w-100 eureka-title" id="exampleModalLongTitle">
+                        Searching for nearest reviews ...
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- Carousel wrapper -->
+                    <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-ride="carousel">
 
-// const title = '<h3 class="eureka-title">Read reviews from your friends</h3>'
-// const closeBtn = '<span class="close">&times;</span>'
-const ctaBtn = '<a id="cta" href="https://app.squarespacescheduling.com/schedule.php?owner=23738166">Schedule a Tour</a>'
+                        <!-- Inner -->
+                        <div class="carousel-inner py-4" style="min-height: 100px">
+                        </div>
+                        <!-- Inner -->
+                    </div>
+                    <!-- Carousel wrapper -->
+                </div>
+                <div class="modal-footer" id="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+`
+
+// <div class="mr-auto" id="advanced-mode">
+//   <label class="switch" style="margin-right: 1em;">
+//     <input type="checkbox" id="advanced-mode-checkbox">
+//     <span class="slider round"></span>
+//   </label>
+//   <p>Advanced Matching</p>
+// </div>
+
+const loadingBox = `<div class="cssload-box-loading"></div>`;
+let is_advanced_mode = false;
+// let is_advanced_mode = localStorage.getItem("is_advanced_mode");
+
+// document.body.insertAdjacentHTML('beforeend', modalWrapper)
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
+    reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
+    reviewsTriggerBtn.addEventListener('click', (e) => {
+      fetchReviews()
+    })
+   
+    // const advanced_mode = document.getElementById('advanced-mode')
+    // const advanced_mode_checkbox = document.getElementById('advanced-mode-checkbox')
+    // advanced_mode_checkbox.addEventListener('click', (e) => {
+    //   is_advanced_mode = !is_advanced_mode
+    //   console.log('changed ', is_advanced_mode);
+    //   if(advanced_mode_checkbox.checked) {
+    //     console.log('refetch');
+    //     fetchReviews()
+    //   }
+    // })
+    // const advanced_mode = document.getElementById("advanced-mode")
+    // advanced_mode.addEventListener('click', (e) => {
+    //   const advanced_mode_checkbox = document.getElementById('advanced-mode-checkbox')
+    //   // console.log('clicked', advanced_mode_checkbox.attributes.checked);
+    //   advanced_mode_checkbox.attributes.checked = !advanced_mode_checkbox.attributes.checked;
+    //   is_advanced_mode = !is_advanced_mode;
+    //   // console.log('changing mode', is_advanced_mode);
+    //   localStorage.setItem("is_advanced_mode", is_advanced_mode);
+    //   if(is_advanced_mode) {
+    //     fetchReviews();
+    //   }
+    // })
+});
+
+function createElementFromHTML(htmlString) {
+  var div = document.createElement('div');
+  div.innerHTML = htmlString;
+
+  // Change this to div.childNodes to support multiple top-level nodes.
+  return div.firstChild;
+}
+
+
+const carousel_controls = `<div class="d-flex justify-content-between mb-4 position-relative">
+                                <a class="ureka-modal-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
+                                  <i class="fas fa-angle-left pe-2"></i>&nbsp;<span>Previous</span>
+                                </a>
+                                <a class="ureka-modal-control position-relative" href="#" role="button" data-slide="next" data-target="#carouselMultiItemExample">
+                                  <span>Next</span>&nbsp;<i class="fas fa-angle-right pe-2" role="img" class="md hydrated"
+                                        aria-label="chevron back outline"></i>
+                                </a>
+                            </div>`
+
+const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary m-auto" href="https://app.squarespacescheduling.com/schedule.php?owner=23738166">Schedule Tour</a>'
 
 let MY_LOCATION = null
 
@@ -45,11 +123,19 @@ function distance(lat1, lat2, lon1, lon2) {
 }
 
 const getLocationFromBrowser = async () => {
-  // console.log('here');
+  console.log('here');
   if (navigator.geolocation) {
-    // console.log('in navigator.geolocation');
+    console.log('in navigator.geolocation');
+
+    navigator.permissions.query({name:'geolocation'}).then(function(result) {
+      // Will return ['granted', 'prompt', 'denied']
+      console.log(result.state);
+      if(result.state !== "granted") {
+        getLocationFromIP()
+      }
+    });
     navigator.geolocation.getCurrentPosition((position) => {
-      // console.log(position.coords.latitude, position.coords.longitude);
+      console.log(position);
       MY_LOCATION = position
     });
   } else { 
@@ -57,83 +143,87 @@ const getLocationFromBrowser = async () => {
   }
 };
 
-// const getLocationFromIP = async () => {
-//   const res = await fetch(
-//     "http://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
-//   );
-//   const data = await res?.json();
-//   // console.log(data);
+const getLocationFromIP = async () => {
+  const res = await fetch(
+    "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
+  );
+  const data = await res?.json();
+  // console.log(data);
+  MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
+  // else throw new Error(data?.error?.info);
+};
 
-//   if (data.success) return data;
-//   else throw new Error(data?.error?.info);
-// };
+function buidReviewsDom(reviews, active=true) {
+  const carousel_item = document.createElement("div");
+  carousel_item.classList.add("carousel-item");
+  if(active) {
+    carousel_item.classList.add("active");
+  }
+  const ureka_container = document.createElement("div");
+  ureka_container.classList.add("ureka-container");
+  const row = document.createElement("div");
+  row.classList.add("row");
 
-// TODO
-function getThreeClosestReviewsByZip(zip) {
-  const closest_three_reviews_by_zip = [];
-  return closest_three_reviews_by_zip;
-}
-// TODO
-function showReviews(closest_reviews) {}
-// TODO
-function showDefaultFallbackReviews(closest_reviews) {}
+  ureka_container.appendChild(row)
+  carousel_item.appendChild(ureka_container)
 
-function buidReviewsDom(reviews) {
-  // if (reviewsWrapper.hasChildNodes()) return;
-  const reviews_container = document.createElement("div");
-  reviews_container.classList.add("reviews_container");
-
-    reviews.forEach((r) => {
-    const review = document.createElement("div");
-    const review_text = document.createElement("blockquote");
-    const review_text_h3 = document.createElement("h3");
-    const review_author = document.createElement("p");
+    reviews.forEach((r, idx) => {
+    const col_lg_4 = document.createElement("div");
+    const review_text = document.createElement("p");
+    const review_author_h5 = document.createElement("h5");
     const review_city = document.createElement("p");
-    const review_bottom = document.createElement("div");
-    // const review_author_img = document.createElement("img");
-    // const review_arrow = document.createElement("div");
 
-    review_text_h3.innerHTML = r.text;
-    review_text.appendChild(review_text_h3)
-    review.appendChild(review_text);
-    // review_text.appendChild(review_arrow);
-    // review_author_img.src = r.img;
-    // review.appendChild(review_author_img);
-    review_author.innerHTML = r.author;
-    review_bottom.appendChild(review_author)
+    review_text.innerHTML = '<i class="fas fa-quote-left pe-2"></i>&nbsp;' + r.text + '&nbsp;<i class="fas fa-quote-right pe-2"></i>'
+    review_author_h5.innerHTML = r.author;
     review_city.innerHTML = r.city;
-    review_bottom.appendChild(review_city)
 
-    review.appendChild(review_bottom)
+    col_lg_4.appendChild(review_author_h5)
+    col_lg_4.appendChild(review_city)
+    col_lg_4.appendChild(review_text)
 
-    review.classList.add("review");
-    // review_author_img.classList.add("review_author_img");
+    col_lg_4.classList.add("review");
+    col_lg_4.classList.add("col-lg-4");
     review_text.classList.add("review_text");
-    review_author.classList.add("review_author");
+    review_city.classList.add("text-muted");
+    review_author_h5.classList.add("review_author");
+    review_author_h5.classList.add("mb-3");
     review_city.classList.add('review_city');
-    review_bottom.classList.add('review_bottom');
-    // review_arrow.classList.add("review_arrow");
 
-    reviews_container.appendChild(review);
+
+    if(idx!=0) {
+      col_lg_4.classList.add('d-none')
+      col_lg_4.classList.add('d-lg-block')
+    }
+
+    row.appendChild(col_lg_4);
   });
 
-  return reviews_container
+  return carousel_item
 }
 
 async function fetchReviews() {  
-  reviewsWrapper.innerHTML = modalWrapper;
-  const modal = document.getElementById("modal");
-  const closeButton = document.querySelector(".close-button");
-  const reviewsContent = document.getElementById("reviews-content");
+  const reviewsContent = document.querySelector(".carousel-inner");
   const loadingText = document.querySelector(".eureka-title");
+  const modal_footer = document.getElementById('modal-footer');
+  reviewsContent.innerHTML = '';
+  reviewsContent.innerHTML = loadingBox;
+  const ureka_cta = document.getElementById('ureka-cta');
+  if(!ureka_cta) {
+    modal_footer.innerHTML = modal_footer.innerHTML +  ctaBtn;
+  }
 
-  closeButton.addEventListener("click", () => {
-      modal.classList.toggle("show-modal");
-  });
-
-  await getLocationFromBrowser()
+  // console.log(is_advanced_mode);
+  if(is_advanced_mode) {
+    // console.log('from browser');
+    await getLocationFromBrowser()
+  } else {
+    // console.log('from ip');
+    await getLocationFromIP()
+  }
 
   setTimeout(() => {
+    loadingText.innerHTML = 'Reviews from your neighbors'
+    reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
     let reviews_container
     if(MY_LOCATION) {
@@ -145,29 +235,52 @@ async function fetchReviews() {
       const ascending_reviews = JSON.parse(JSON.stringify(reviews))
       ascending_reviews.sort((a,b) => a.distance - b.distance) // b - a for reverse sort
       // console.log('ascending', ascending_reviews); // b - a for reverse sort
-      reviews_container = buidReviewsDom(ascending_reviews.slice(0,3))
+      
+      for (var i = 0; i+1 < ascending_reviews.length; i += 3) {
+        // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
+        const three_reviews = [ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]]
+        if(i===0) {
+          reviewsContent.appendChild(buidReviewsDom(three_reviews, true))
+        } else {
+          reviewsContent.appendChild(buidReviewsDom(three_reviews, false))
+        }
+        // or console.log(array.slice(i, 3));
+      }
     } else {
       const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
-      reviews_container = buidReviewsDom(threeRandomReviews)
+      reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
     }
 
-    reviewsContent.innerHTML = ''
-    reviewsContent.appendChild(reviews_container)
-    loadingText.innerHTML = 'Reviews from your neighbors'
-    reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
+    // reviewsContent.innerHTML = ''
+    // console.log(reviews_container);
+    // reviewsContent.appendChild(reviews_container)
+    reviewsContent.appendChild(createElementFromHTML(carousel_controls))
+    // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
   }, 3000)
-  setTimeout(() => {
-    modal.classList.toggle("show-modal");
-  }, 100)
+
+  // setTimeout(() => {
+  //   if(!modal.classList.contains('show')) {
+  //     modal.classList.toggle("show");
+  //     modal.style.display = modal.style.display === "block" ? "none" : "block" ;
+  //     // modal.classList.toggle("show");
+  //     document.body.classList.toggle('modal-open')
+  //     document.body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop fade show"></div>')
+  //   }
+  // }, 300)
 
   // reviews_container.insertAdjacentHTML('beforebegin')
   // reviews_container.insertAdjacentHTML('beforebegin', closeBtn)
 }
 
-const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
 
-reviewsTriggerBtn.addEventListener("click", () => {
-  fetchReviews();
-});
+// window.addEventListener('DOMContentLoaded', (e) => {
+// })
+// const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
+// console.log(reviewsTriggerBtn);
+// reviewsTriggerBtn.addEventListener("click", (e) => {
+//   e.stopPropagation();
+//   console.log('po');
+//   fetchReviews();
+// });
 
 // fetchReviews();

@@ -3,7 +3,7 @@
 ### Steps for adding a new client
 
 1. Copy and rename the `template/` folder
-2. Update the `reviews` in reviews.js file for new client. (zip, name, text, city)
+2. Update the `reviews` in reviews.js file for new client. (zip, lat, long, name, text, city).  Can get lat/long from zip from a site like [this one](https://www.freemaptools.com/convert-us-zip-code-to-lat-lng.htm). 
 3. Update the button color in `styles.css` in the new client folder as desired
 
 ```css
