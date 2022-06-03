@@ -22,19 +22,18 @@ const modalWrapper = `
                     <!-- Carousel wrapper -->
                 </div>
                 <div class="modal-footer" id="modal-footer">
+                  <div class="mr-auto" id="advanced-mode">
+                    <label class="switch" style="margin-right: 1em;">
+                      <input type="checkbox" id="advanced-mode-checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                    <p class="my-2">Advanced Matching</p>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
 `
-
-// <div class="mr-auto" id="advanced-mode">
-//   <label class="switch" style="margin-right: 1em;">
-//     <input type="checkbox" id="advanced-mode-checkbox">
-//     <span class="slider round"></span>
-//   </label>
-//   <p>Advanced Matching</p>
-// </div>
 
 const loadingBox = `<div class="cssload-box-loading"></div>`;
 let is_advanced_mode = false;
@@ -49,8 +48,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       fetchReviews()
     })
    
-    // const advanced_mode = document.getElementById('advanced-mode')
-    // const advanced_mode_checkbox = document.getElementById('advanced-mode-checkbox')
+
     // advanced_mode_checkbox.addEventListener('click', (e) => {
     //   is_advanced_mode = !is_advanced_mode
     //   console.log('changed ', is_advanced_mode);
@@ -73,6 +71,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // })
 });
 
+
 function createElementFromHTML(htmlString) {
   var div = document.createElement('div');
   div.innerHTML = htmlString;
@@ -92,7 +91,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary m-auto" href="https://lunchbreak4kids.com/meal-plans/">Get Started</a>'
+const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary" href="https://lunchbreak4kids.com/meal-plans/">Get Started</a>'
 
 let MY_LOCATION = null
 
@@ -201,7 +200,7 @@ function buidReviewsDom(reviews, active=true) {
   return carousel_item
 }
 
-async function fetchReviews() {  
+async function fetchReviews(skip=true) {
   const reviewsContent = document.querySelector(".carousel-inner");
   const loadingText = document.querySelector(".eureka-title");
   const modal_footer = document.getElementById('modal-footer');
@@ -211,6 +210,26 @@ async function fetchReviews() {
   if(!ureka_cta) {
     modal_footer.innerHTML = modal_footer.innerHTML +  ctaBtn;
   }
+
+
+if(skip) {
+  const advanced_mode = document.getElementById('advanced-mode')
+  const advanced_mode_checkbox = document.getElementById('advanced-mode-checkbox')
+  console.log(advanced_mode_checkbox);
+  advanced_mode.addEventListener('change', async (e) => {
+    console.log('here');
+    if (e.target.checked) {
+      console.log("Checkbox is checked..");
+      is_advanced_mode=true
+        await getLocationFromBrowser()
+        fetchReviews(false)
+    } else {
+      console.log("Checkbox is not checked..");
+      await getLocationFromIP()
+    }
+  })
+}
+
 
   console.log(is_advanced_mode);
   if(is_advanced_mode) {
