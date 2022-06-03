@@ -3,7 +3,7 @@
 ### Steps for adding a new client
 
 1. Copy and rename the `template/` folder
-2. Update the `reviews` in reviews.js file for new client. (zip, lat, long, name, text, city).  Can get lat/long from zip from a site like [this one](https://www.freemaptools.com/convert-us-zip-code-to-lat-lng.htm). 
+2. Update the `reviews` in reviews.js file for new client. (zip, lat, long, name, text, city). Can get lat/long from zip from a site like [this one](https://www.freemaptools.com/convert-us-zip-code-to-lat-lng.htm).
 3. Update the button color in `styles.css` in the new client folder as desired
 
 ```css
@@ -27,7 +27,9 @@ const ctaBtn =
   '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary m-auto" href="https://lunchbreak4kids.com/meal-plans/">GetStarted</a>';
 ```
 
-5. Get the plugin code to embed for new client by substituting value for `client_folder_name` in the following template at all appropriate places. This will work after code is in master branch.
+5. Find and remove all the logs (`console.log`) from `index.js` in the client folder.
+
+6. Get the plugin code to embed for new client by substituting value for `client_folder_name` in the following template at all appropriate places. This will work after code is in master branch.
 
 ```html
 <!-- Eureka reiviews plugin -->
