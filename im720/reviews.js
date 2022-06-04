@@ -14,7 +14,7 @@ const REVIEWS = [
     id: 1,
     author: "Seth Johnson",
     text:
-      "Angie truly is a force of nature.  So much energy, so much enthusiasm.  She has given my business the boost we needed to get off the ground.",
+      "Angie truly is a force of nature.  So much energy, so much enthusiasm.  She has given my business the boost we needed to get off the ground.  Thank you!",
     img:
       "https://cdn-cmhkh.nitrocdn.com/TezMmPgFmiYDBaHMYdPwMCWAKAYkIeiI/assets/static/optimized/www.theloremipsumco.com/wp-content/uploads/2014/04/16cf23915a4dc235a62f204704f4b424.Gordon-Kelsi.jpg",
     lat: "33.87449",
