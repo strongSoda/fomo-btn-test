@@ -43,7 +43,7 @@ let is_advanced_mode = false;
 
 // document.body.insertAdjacentHTML('beforeend', modalWrapper)
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+    // console.log('DOM fully loaded and parsed');
     const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
     reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
     reviewsTriggerBtn.addEventListener('click', (e) => {
@@ -124,23 +124,23 @@ function distance(lat1, lat2, lon1, lon2) {
 }
 
 const getLocationFromBrowser = async () => {
-  console.log('here');
+  // console.log('here');
   if (navigator.geolocation) {
-    console.log('in navigator.geolocation');
+    // console.log('in navigator.geolocation');
 
     navigator.permissions.query({name:'geolocation'}).then(function(result) {
       // Will return ['granted', 'prompt', 'denied']
-      console.log(result.state);
+      // console.log(result.state);
       if(result.state !== "granted") {
         getLocationFromIP()
       }
     });
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position);
+      // console.log(position);
       MY_LOCATION = position
     });
   } else { 
-    console.log("Geolocation is not supported by this browser.");
+    // console.log("Geolocation is not supported by this browser.");
   }
 };
 
@@ -234,12 +234,12 @@ async function fetchReviews() {
 // }
 
 
-  console.log(is_advanced_mode);
+  // console.log(is_advanced_mode);
   if(is_advanced_mode) {
-    console.log('from browser');
+    // console.log('from browser');
     await getLocationFromBrowser()
   } else {
-    console.log('from ip');
+    // console.log('from ip');
     await getLocationFromIP()
   }
 
