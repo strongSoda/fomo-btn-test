@@ -536,7 +536,8 @@ const REVIEWS = [
     lat: "33.92325",
     lng: "-118.05757",
     city: "Santa Fe Springs, CA",
-    text: "Dylan Cohen Great place for storage ans warehousing of all sizes, clean property and easy going staff!",
+    author: "Dylan Cohen",
+    text: "Great place for storage ans warehousing of all sizes, clean property and easy going staff!",
   },
   {
     id: 60,
