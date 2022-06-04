@@ -194,8 +194,8 @@ const REVIEWS = [
     lat: "34.00181",
     lng: "-117.98336",
     city: "City of Industry, CA",
-    author: "Tanner's",
-    text: "Coffee Got some warehouse space near long beach port on a 3 month agreement. Very flexible and easy process. Friendly staff and professional. Dont know of any other place renting exact spaces on short term leases",
+    author: "Tanner's Coffee",
+    text: "Got some warehouse space near long beach port on a 3 month agreement. Very flexible and easy process. Friendly staff and professional. Dont know of any other place renting exact spaces on short term leases",
   },
   {
     id: 22,
