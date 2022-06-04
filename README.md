@@ -32,7 +32,7 @@ const ctaBtn =
 6. Get the plugin code to embed for new client by substituting value for `client_folder_name` in the following template at all appropriate places. This will work after code is in master branch.
 
 ```html
-<!-- Eureka reiviews plugin -->
+<!-- FOMO Button -->
 <!-- Paste this code at the place you want the button to appear -->
 <link
   rel="stylesheet"
@@ -86,6 +86,6 @@ const ctaBtn =
 <script src="https://fomobutton.netlify.app/{client_folder_name}/reviews.js"></script>
 <script src="https://fomobutton.netlify.app/{client_folder_name}/index.js"></script>
 
-<!-- Eureka reiviews plugin -->
+<!-- FOMO Button -->
 <!-- --------- END --------- -->
 ```
