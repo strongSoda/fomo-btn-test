@@ -63,7 +63,7 @@ const ctaBtn =
     data-target="#ureka-modal"
     data-site-id="{client_folder_name}"
   >
-    Read Reviews from your nighbors
+    Read Reviews from your neighbors
   </button>
 </div>
 
