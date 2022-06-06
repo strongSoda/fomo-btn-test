@@ -396,6 +396,9 @@ async function fetchReviews() {
       const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
       reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
       console.log('REVIEWS SHOWN', 3);
+      console.log('REVIEWS SHOWN', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      logReviewsShown(3, window.location.href, new Date().toDateString(), new Date().toTimeString())
+      console.log('REVIEWS SHOWN logged', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
     }
 
     // reviewsContent.innerHTML = ''
