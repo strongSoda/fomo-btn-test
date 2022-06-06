@@ -28,6 +28,108 @@ const modalWrapper = `
     </div>
 `
 
+const SHEETY_API_URL = "https://api.sheety.co/75b561b8b17e789849228078912aed73/cubeworkMetrics"
+const CTA_URL = "https://lunchbreak4kids.com/meal-plans/"
+
+const logVisit = async (currenturl, date, time) => {
+  let url = `${SHEETY_API_URL}/visitors`;
+  let body = {
+    visitor: {
+      url: currenturl,
+      date: date,
+      time: time
+    }
+  }
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  .then((response) => response.json())
+  .then(json => {
+    // Do something with object
+    console.log(json.visitor);
+  });
+}
+
+const logTriggerBtnClick = async (currenturl, date, time) => {
+  let url = `${SHEETY_API_URL}/fomoButtonClicked`;
+  let body = {
+    fomoButtonClicked: {
+      url: currenturl,
+      date: date,
+      time: time
+    }
+  }
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  .then((response) => response.json())
+  .then(json => {
+    // Do something with object
+    console.log(json.visitor);
+  });
+}
+
+const logReviewsShown = async (total, currenturl, date, time) => {
+  let url = `${SHEETY_API_URL}/reviewsShown`;
+  let body = {
+    reviewsShown: {
+      url: currenturl,
+      date: date,
+      time: time,
+      numberOfReviews: total
+    }
+  }
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  .then((response) => response.json())
+  .then(json => {
+    // Do something with object
+    console.log(json.visitor);
+  });
+}
+
+const logUrekaCtaClick = async (ureka, currenturl, date, time) => {
+  let url = `${SHEETY_API_URL}/urekaCtaClicked`;
+  let body = {
+    urekaCtaClicked: {
+      url: currenturl,
+      date: date,
+      time: time,
+      ureka: ureka,
+    }
+  }
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  .then((response) => response.json())
+  .then(json => {
+    // Do something with object
+    console.log(json.visitor);
+  });
+}
+
+
+console.log('Visit', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+logVisit(window.location.href, new Date().toDateString(), new Date().toTimeString())
+console.log('Visit logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+
 // Advanced mode
 {/* <div class="mr-auto" id="advanced-mode">
   <label class="switch" style="margin-right: 1em;">
@@ -48,8 +150,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
     reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
     reviewsTriggerBtn.addEventListener('click', (e) => {
       fetchReviews()
+      console.log('Clicked');
+
+      console.log('Click', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      logTriggerBtnClick(window.location.href, new Date().toDateString(), new Date().toTimeString())
+      console.log('Click logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
     })
    
+
+
+    document.addEventListener('click', (e) => {
+      if (e.target.href === CTA_URL && e.target.id !== "ureka-cta") {
+        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString())
+        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      }
+    })
 
     // advanced_mode_checkbox.addEventListener('click', (e) => {
     //   is_advanced_mode = !is_advanced_mode
@@ -93,7 +209,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="https://lunchbreak4kids.com/meal-plans/">Get Started</a>'
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Get Started</a>`
 
 let MY_LOCATION = null
 
@@ -213,7 +329,6 @@ async function fetchReviews() {
     modal_footer.innerHTML = modal_footer.innerHTML +  ctaBtn;
   }
 
-
 // advanced mode
 // if(skip) {
 //   const advanced_mode = document.getElementById('advanced-mode')
@@ -258,9 +373,18 @@ async function fetchReviews() {
       ascending_reviews.sort((a,b) => a.distance - b.distance) // b - a for reverse sort
       // console.log('ascending', ascending_reviews); // b - a for reverse sort
       
-      for (var i = 0; i+3 < ascending_reviews.length; i += 3) {
+      console.log('REVIEWS SHOWN', ascending_reviews.length);
+      
+      console.log('REVIEWS SHOWN', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      logReviewsShown(ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toTimeString())
+      console.log('REVIEWS SHOWN logged', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+
+      for (var i = 0; i < ascending_reviews.length; i += 3) {
         // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
-        const three_reviews = [ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]]
+        const first_review = ascending_reviews[i] ? ascending_reviews[i] : ascending_reviews[0]
+        const second_review = ascending_reviews[i+1] ? ascending_reviews[i+1] : ascending_reviews[1]
+        const three_review = ascending_reviews[i+2] ? ascending_reviews[i+2] : ascending_reviews[2]
+        const three_reviews = [first_review, second_review, three_review]
         if(i===0) {
           reviewsContent.appendChild(buidReviewsDom(three_reviews, true))
         } else {
@@ -271,6 +395,7 @@ async function fetchReviews() {
     } else {
       const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
       reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
+      console.log('REVIEWS SHOWN', 3);
     }
 
     // reviewsContent.innerHTML = ''
@@ -278,31 +403,18 @@ async function fetchReviews() {
     // reviewsContent.appendChild(reviews_container)
     reviewsContent.appendChild(createElementFromHTML(carousel_controls))
     // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
+
+
+    document.addEventListener('click', (e) => {
+      if(e.target.id === "ureka-cta") {
+        console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+        logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString())
+        console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      } else if (e.target.href === CTA_URL) {
+        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString())
+        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      }
+    })
   }, 3000)
-
-  // setTimeout(() => {
-  //   if(!modal.classList.contains('show')) {
-  //     modal.classList.toggle("show");
-  //     modal.style.display = modal.style.display === "block" ? "none" : "block" ;
-  //     // modal.classList.toggle("show");
-  //     document.body.classList.toggle('modal-open')
-  //     document.body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop fade show"></div>')
-  //   }
-  // }, 300)
-
-  // reviews_container.insertAdjacentHTML('beforebegin')
-  // reviews_container.insertAdjacentHTML('beforebegin', closeBtn)
 }
-
-
-// window.addEventListener('DOMContentLoaded', (e) => {
-// })
-// const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
-// console.log(reviewsTriggerBtn);
-// reviewsTriggerBtn.addEventListener("click", (e) => {
-//   e.stopPropagation();
-//   console.log('po');
-//   fetchReviews();
-// });
-
-// fetchReviews();
