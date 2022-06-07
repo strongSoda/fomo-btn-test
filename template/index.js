@@ -25,19 +25,41 @@ const modalWrapper = `
                 </div>
             </div>
         </div>
-    </div>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RV4TQ6LHXG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RV4TQ6LHXG');
+</script>
 `
 
 const SHEETY_API_URL = "https://api.sheety.co/75b561b8b17e789849228078912aed73/cubeworkMetrics"
 const CTA_URL = "https://lunchbreak4kids.com/meal-plans/"
 
-const logVisit = async (currenturl, date, time) => {
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+const logVisit = async (currenturl, date, time, utc_time) => {
   let url = `${SHEETY_API_URL}/visitors`;
   let body = {
     visitor: {
       url: currenturl,
       date: date,
-      time: time
+      time: time,
+      utc_time: utc_time
     }
   }
   fetch(url, {
@@ -54,13 +76,14 @@ const logVisit = async (currenturl, date, time) => {
   });
 }
 
-const logTriggerBtnClick = async (currenturl, date, time) => {
+const logTriggerBtnClick = async (currenturl, date, time, utc_time) => {
   let url = `${SHEETY_API_URL}/fomoButtonClicked`;
   let body = {
     fomoButtonClicked: {
       url: currenturl,
       date: date,
-      time: time
+      time: time,
+      utc_time: utc_time,
     }
   }
   fetch(url, {
@@ -77,14 +100,15 @@ const logTriggerBtnClick = async (currenturl, date, time) => {
   });
 }
 
-const logReviewsShown = async (total, currenturl, date, time) => {
+const logReviewsShown = async (total, currenturl, date, time, utc_time) => {
   let url = `${SHEETY_API_URL}/reviewsShown`;
   let body = {
     reviewsShown: {
       url: currenturl,
       date: date,
       time: time,
-      numberOfReviews: total
+      numberOfReviews: total,
+      utc_time: utc_time,
     }
   }
   fetch(url, {
@@ -101,7 +125,7 @@ const logReviewsShown = async (total, currenturl, date, time) => {
   });
 }
 
-const logUrekaCtaClick = async (ureka, currenturl, date, time) => {
+const logUrekaCtaClick = async (ureka, currenturl, date, time, utc_time) => {
   let url = `${SHEETY_API_URL}/urekaCtaClicked`;
   let body = {
     urekaCtaClicked: {
@@ -109,6 +133,7 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time) => {
       date: date,
       time: time,
       ureka: ureka,
+      utc_time: utc_time
     }
   }
   fetch(url, {
@@ -125,10 +150,65 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time) => {
   });
 }
 
+const logDemographics = async (city, continent, latitude, longitude, country, ip, region, zip, timezone_code, timezone_id, currency, utc_time) => {
+  let url = `${SHEETY_API_URL}/demographics`;
+  let body = {
+    demographic: {
+      city: city,
+      continent: continent,
+      latitude: latitude,
+      longitude: longitude,
+      country: country,
+      ip: ip,
+      region: region,
+      zip: zip,
+      timezone_code: timezone_code,
+      timezone_id: timezone_id,
+      currency: currency,
+      utc_time: utc_time
+    }
+  }
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  .then((response) => response.json())
+  .then(json => {
+    // Do something with object
+    console.log(json.visitor);
+  });
+}
 
-console.log('Visit', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-logVisit(window.location.href, new Date().toDateString(), new Date().toTimeString())
-console.log('Visit logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+const logUrekaBtnFocus = async (currenturl, date, time, utc_time) => {
+  let url = `${SHEETY_API_URL}/urekaButtonSeen`;
+  let body = {
+    urekaButtonSeen: {
+      url: currenturl,
+      date: date,
+      time: time,
+      utc_time: utc_time
+    }
+  }
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  .then((response) => response.json())
+  .then(json => {
+    // Do something with object
+    console.log(json.visitor);
+  });
+}
+
+console.log('Visit', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+logVisit(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+console.log('Visit logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
 
 // Advanced mode
 {/* <div class="mr-auto" id="advanced-mode">
@@ -152,18 +232,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
       fetchReviews()
       console.log('Clicked');
 
-      console.log('Click', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-      logTriggerBtnClick(window.location.href, new Date().toDateString(), new Date().toTimeString())
-      console.log('Click logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      console.log('Click', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      logTriggerBtnClick(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+      console.log('Click logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
     })
    
 
 
     document.addEventListener('click', (e) => {
       if (e.target.href === CTA_URL && e.target.id !== "ureka-cta") {
-        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString())
-        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      }
+    })
+
+    document.addEventListener('scroll', (e) => {
+      if(isInViewport(reviewsTriggerBtn)) {
+        console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        logUrekaBtnFocus(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())        
+        console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       }
     })
 
@@ -265,7 +353,8 @@ const getLocationFromIP = async () => {
     "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
   );
   const data = await res?.json();
-  // console.log(data);
+  console.log(data);
+  console.log(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
   MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
   // else throw new Error(data?.error?.info);
 };
@@ -375,9 +464,9 @@ async function fetchReviews() {
       
       console.log('REVIEWS SHOWN', ascending_reviews.length);
       
-      console.log('REVIEWS SHOWN', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-      logReviewsShown(ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toTimeString())
-      console.log('REVIEWS SHOWN logged', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      console.log('REVIEWS SHOWN', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      logReviewsShown(ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+      console.log('REVIEWS SHOWN logged', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
 
       for (var i = 0; i < ascending_reviews.length; i += 3) {
         // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
@@ -396,9 +485,9 @@ async function fetchReviews() {
       const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
       reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
       console.log('REVIEWS SHOWN', 3);
-      console.log('REVIEWS SHOWN', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-      logReviewsShown(3, window.location.href, new Date().toDateString(), new Date().toTimeString())
-      console.log('REVIEWS SHOWN logged', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+      console.log('REVIEWS SHOWN', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      logReviewsShown(3, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+      console.log('REVIEWS SHOWN logged', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
     }
 
     // reviewsContent.innerHTML = ''
@@ -410,13 +499,13 @@ async function fetchReviews() {
 
     document.addEventListener('click', (e) => {
       if(e.target.id === "ureka-cta") {
-        console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-        logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString())
-        console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+        console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+        console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       } else if (e.target.href === CTA_URL) {
-        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
-        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString())
-        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString());
+        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       }
     })
   }, 3000)
