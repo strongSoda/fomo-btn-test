@@ -240,6 +240,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaBtnFocus(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())        
         console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        UREKA_BTN_FOCUSED = true;
       }
     })
 
