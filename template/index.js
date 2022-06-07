@@ -222,6 +222,7 @@ console.log('Visit logged', window.location.href, new Date().toDateString(), new
 const loadingBox = `<div class="cssload-box-loading"></div>`;
 let is_advanced_mode = false;
 // let is_advanced_mode = localStorage.getItem("is_advanced_mode");
+let UREKA_BTN_FOCUSED = false;
 
 // document.body.insertAdjacentHTML('beforeend', modalWrapper)
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -248,10 +249,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
 
     document.addEventListener('scroll', (e) => {
-      if(isInViewport(reviewsTriggerBtn)) {
+      if(isInViewport(reviewsTriggerBtn) && !UREKA_BTN_FOCUSED) {
         console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaBtnFocus(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())        
         console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        UREKA_BTN_FOCUSED = true;
       }
     })
 
