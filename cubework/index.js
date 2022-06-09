@@ -27,13 +27,13 @@ const modalWrapper = `
         </div>
 </div>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RV4TQ6LHXG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RV4TQ6LHXG');
+<!-- Microsoft clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "c9gj5oo2yk");
 </script>
 
 `
@@ -507,3 +507,16 @@ async function fetchReviews() {
 // });
 
 // fetchReviews();
+
+// Google Analytics
+(function(){
+    var ga=document.createElement('script');
+    ga.type='text/javascript';
+    ga.async=true;
+    ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.googletagmanager.com/gtag/js?id=G-RV4TQ6LHXG';
+    var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s)
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RV4TQ6LHXG');
+})();
