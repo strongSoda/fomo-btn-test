@@ -228,7 +228,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
    
 
     document.addEventListener('click', (e) => {
-      if (e.target.href === CTA_URL && e.target.id !== "ureka-cta") {
+      if ((e.target.href === CTA_URL || e.target.href === "https://en.cubework.com/schedule-a-tour") && e.target.id !== "ureka-cta") {
         console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
@@ -473,7 +473,7 @@ async function fetchReviews() {
         console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      } else if (e.target.href === CTA_URL) {
+      } else if (e.target.href === CTA_URL || e.target.href === "https://en.cubework.com/schedule-a-tour") {
         console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
