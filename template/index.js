@@ -52,14 +52,14 @@ function isInViewport(element) {
     );
 }
 
-const logVisit = async (currenturl, date, time, utc_time) => {
+const logVisit = async (currenturl, date, time, utcTime) => {
   let url = `${SHEETY_API_URL}/visitors`;
   let body = {
     visitor: {
       url: currenturl,
       date: date,
       time: time,
-      utc_time: utc_time
+      utcTime: utcTime
     }
   }
   fetch(url, {
@@ -76,14 +76,14 @@ const logVisit = async (currenturl, date, time, utc_time) => {
   });
 }
 
-const logTriggerBtnClick = async (currenturl, date, time, utc_time) => {
+const logTriggerBtnClick = async (currenturl, date, time, utcTime) => {
   let url = `${SHEETY_API_URL}/fomoButtonClicked`;
   let body = {
     fomoButtonClicked: {
       url: currenturl,
       date: date,
       time: time,
-      utc_time: utc_time,
+      utcTime: utcTime,
     }
   }
   fetch(url, {
@@ -100,7 +100,7 @@ const logTriggerBtnClick = async (currenturl, date, time, utc_time) => {
   });
 }
 
-const logReviewsShown = async (total, currenturl, date, time, utc_time) => {
+const logReviewsShown = async (total, currenturl, date, time, utcTime) => {
   let url = `${SHEETY_API_URL}/reviewsShown`;
   let body = {
     reviewsShown: {
@@ -108,7 +108,7 @@ const logReviewsShown = async (total, currenturl, date, time, utc_time) => {
       date: date,
       time: time,
       numberOfReviews: total,
-      utc_time: utc_time,
+      utcTime: utcTime,
     }
   }
   fetch(url, {
@@ -125,7 +125,7 @@ const logReviewsShown = async (total, currenturl, date, time, utc_time) => {
   });
 }
 
-const logUrekaCtaClick = async (ureka, currenturl, date, time, utc_time) => {
+const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
   let url = `${SHEETY_API_URL}/urekaCtaClicked`;
   let body = {
     urekaCtaClicked: {
@@ -133,7 +133,7 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utc_time) => {
       date: date,
       time: time,
       ureka: ureka,
-      utc_time: utc_time
+      utcTime: utcTime
     }
   }
   fetch(url, {
@@ -150,7 +150,7 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utc_time) => {
   });
 }
 
-const logDemographics = async (city, continent, latitude, longitude, country, ip, region, zip, timezone_code, timezone_id, currency, utc_time) => {
+const logDemographics = async (city, continent, latitude, longitude, country, ip, region, zip, timezone_code, timezone_id, currency, utcTime) => {
   let url = `${SHEETY_API_URL}/demographics`;
   let body = {
     demographic: {
@@ -162,10 +162,10 @@ const logDemographics = async (city, continent, latitude, longitude, country, ip
       ip: ip,
       region: region,
       zip: zip,
-      timezone_code: timezone_code,
-      timezone_id: timezone_id,
+      timezoneCode: timezone_code,
+      timezoneId: timezone_id,
       currency: currency,
-      utc_time: utc_time
+      utcTime: utcTime
     }
   }
   fetch(url, {
@@ -182,14 +182,14 @@ const logDemographics = async (city, continent, latitude, longitude, country, ip
   });
 }
 
-const logUrekaBtnFocus = async (currenturl, date, time, utc_time) => {
+const logUrekaBtnFocus = async (currenturl, date, time, utcTime) => {
   let url = `${SHEETY_API_URL}/urekaButtonSeen`;
   let body = {
     urekaButtonSeen: {
       url: currenturl,
       date: date,
       time: time,
-      utc_time: utc_time
+      utcTime: utcTime
     }
   }
   fetch(url, {
@@ -357,6 +357,7 @@ const getLocationFromIP = async () => {
   const data = await res?.json();
   console.log(data);
   console.log(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
+  logDemographics(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString())
   MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
   // else throw new Error(data?.error?.info);
 };
