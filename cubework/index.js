@@ -26,16 +26,6 @@ const modalWrapper = `
             </div>
         </div>
 </div>
-
-<!-- Microsoft clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "c9gj5oo2yk");
-</script>
-
 `
 
 const SHEETY_API_URL = "https://api.sheety.co/e6308a30988c2a9e6e0ead2fd194efa5/cubeworkMetrics"
@@ -520,3 +510,11 @@ async function fetchReviews() {
     gtag('js', new Date());
     gtag('config', 'G-RV4TQ6LHXG');
 })();
+
+
+// Microsoft clarity
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "c9gj5oo2yk");
