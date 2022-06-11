@@ -61,7 +61,7 @@ const logVisit = async (currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 const logTriggerBtnClick = async (currenturl, date, time, utcTime) => {
@@ -84,7 +84,7 @@ const logTriggerBtnClick = async (currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 const logReviewsShown = async (total, currenturl, date, time, utcTime) => {
@@ -108,7 +108,7 @@ const logReviewsShown = async (total, currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
@@ -132,7 +132,7 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -164,7 +164,7 @@ const logDemographics = async (city, continent, latitude, longitude, country, ip
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -188,7 +188,7 @@ const logUrekaBtnFocus = async (currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -458,6 +458,7 @@ async function fetchReviews() {
     // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
 
 
+    try {
     document.addEventListener('click', (e) => {
       if(e.target.id === "ureka-cta") {
         console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
@@ -469,6 +470,9 @@ async function fetchReviews() {
         console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       }
     })
+  } catch(e) {
+    console.log(e);
+  }
   }, 3000)
 
   // setTimeout(() => {

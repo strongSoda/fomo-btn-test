@@ -72,7 +72,7 @@ const logVisit = async (currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -96,7 +96,7 @@ const logTriggerBtnClick = async (currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -121,7 +121,7 @@ const logReviewsShown = async (total, currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -146,7 +146,7 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -178,7 +178,7 @@ const logDemographics = async (city, continent, latitude, longitude, country, ip
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -202,7 +202,7 @@ const logUrekaBtnFocus = async (currenturl, date, time, utcTime) => {
   .then((response) => response.json())
   .then(json => {
     // Do something with object
-    console.log(json.visitor);
+    console.log(json);
   });
 }
 
@@ -247,6 +247,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       }
     })
+
+    document.addEventListener('ureka_cta_clicked', (e) => {
+      console.log('ureka_cta_clicked', e);
+    })
+
 
     document.addEventListener('scroll', (e) => {
       if(isInViewport(reviewsTriggerBtn) && !UREKA_BTN_FOCUSED) {
@@ -500,8 +505,11 @@ async function fetchReviews() {
     // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
 
 
+    try {
     document.addEventListener('click', (e) => {
       if(e.target.id === "ureka-cta") {
+        // const event = new Event('ureka_cta_clicked');
+        // document.dispatchEvent(event)
         console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
@@ -511,5 +519,8 @@ async function fetchReviews() {
         console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       }
     })
+    } catch(e) {
+          console.log(e);
+      }
   }, 3000)
 }
