@@ -122,18 +122,23 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
       utcTime: utcTime
     }
   }
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  })
-  .then((response) => response.json())
-  .then(json => {
-    // Do something with object
-    console.log(json);
-  });
+  console.log('###############', body, url);
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+  
+    console.log('#############', res);
+  const json = await res.json()
+  console.log(json);
+  } catch(e) {
+    console.log(e, 'yo');
+  }
 }
 
 const logDemographics = async (city, continent, latitude, longitude, country, ip, region, zip, timezone_code, timezone_id, currency, utcTime) => {
@@ -277,7 +282,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Get Started</a>`
+const ctaBtn = `<button id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto">Get Started</button>`
 
 let MY_LOCATION = null
 
@@ -461,13 +466,16 @@ async function fetchReviews() {
     try {
     document.addEventListener('click', (e) => {
       if(e.target.id === "ureka-cta") {
-        console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+        console.log('Ureka CTA Click', true, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        logUrekaCtaClick(true, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        setTimeout(() => {window.location.href = CTA_URL;}, 1000)
       } else if (e.target.href === CTA_URL || e.target.href === "https://en.cubework.com/schedule-a-tour") {
-        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        console.log('Other CTA Click', false, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        logUrekaCtaClick(false, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+        console.log('Other CTA Click logged', false, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      } else {
+        console.log('Not my click')
       }
     })
   } catch(e) {
