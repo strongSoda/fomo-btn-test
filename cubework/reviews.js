@@ -970,6 +970,7 @@ const REVIEWS = [
     city: "Diamond Bar, CA",
     author: "James L.",
     text: "Cubework is the best coworking and largest industrial workspace in the world.  I use Cubework in multiple locations across the US and Canada coming soon.  Members can sign-up and move in 300-20,000 square feet under 1 hour.  Great partners!"
+  },
 ];
 
 
