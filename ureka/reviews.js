@@ -1,0 +1,58 @@
+const REVIEWS = [
+  {
+    id: 0,
+    zip: "90601",
+    lat: "50.732700",
+    lng: "7.096310",
+    city: "Bonn, Germany",
+    author: "Solomon Eko",
+    text: "Wow, this is really a great idea, I love it, I love it. Great solution, absolutely great solution. It's going to be a game changer in the industry. ",
+  },     
+  {
+    id: 1,
+    zip: "90601",
+    lat: "37.334790",
+    lng: "-121.888140",
+    city: "Silicon Valley",
+    author: "James Chen",
+    text: "Your idea is an innovative solution to testimonials and is excellent overall as people are more likely to buy a product if their friends or family like it.",
+  },
+  {
+    id: 2,
+    zip: "90601",
+    lat: "-37.390202",
+    lng: "174.729004",
+    city: "Waikato, New Zealand",
+    author: "Scott Granville",
+    text: "Really interesting concept. Good luck with your progress.",
+  },
+  {
+    id: 3,
+    zip: "91745",
+    lat: "-1.944880",
+    lng: "30.062380",
+    city: "Kigali Rwanda",
+    author: "Bafana.io",
+    text: "Hello, congratulations on your progress! Your landing page does a good job summarising the value that you offer users. Good luck with your work!",
+  },
+  {
+    id: 4,
+    zip: "91745",
+    lat: "18.520430",
+    lng: "73.856743",
+    city: "Pune, Maharashtra",
+    author: "Ankush Singh",
+    text: "Can be super cool for enterprise clients, especially the ones who have attained a level of clientele because that there will be someone from the neighborhood which would be available to be shown there. I think that's and that's a very interesting idea. I would like to give it a try if I come across something like that and have an enterprise because that's an exciting idea. But overall, I think it can be a good B2 B solution for established enterprises. Good luck with that.",
+  },
+  {
+    id: 5,
+    zip: "91745",
+    lat: "42.38005",
+    lng: "-71.13295",
+    city: "Cambridge, MA",
+    author: "Lawson Reed",
+    text: "This could be amazing.  It's the little nudge a customer needs just before they make a purchase.",
+  },
+];
+
+
