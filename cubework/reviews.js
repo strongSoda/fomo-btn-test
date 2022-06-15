@@ -770,7 +770,7 @@ const REVIEWS = [
     lat: "34.00327",
     lng: "-118.02612",
     city: "City of Industry, CA",
-    author: "Wang$ap",
+    author: "WangSap",
     text: "Cubework is a great community that partners with local businesses! Keep up the good work",
   },
   {
@@ -785,7 +785,7 @@ const REVIEWS = [
   {
     id: 87,  
     zip: "94701", 
-    lat: "37.8718" 
+    lat: "37.8718",
     lng: "-122.2718",
     city: "Berkeley, CA",
     author: "Johnny M.",
@@ -794,7 +794,7 @@ const REVIEWS = [
   {
     id: 88,  
     zip: "60031", 
-    lat: "42.37818"  
+    lat: "42.37818",
     lng: "-87.943",
     city: "Gurnee, IL",
     author: "Davey C.",
@@ -803,7 +803,7 @@ const REVIEWS = [
   {
     id: 89,  
     zip: "91775", 
-    lat: "34.11632"  
+    lat: "34.11632",
     lng: "-118.09267",
     city: "San Gabriel, CA",
     author: "Eva H.",
@@ -812,7 +812,7 @@ const REVIEWS = [
   {
     id: 90,  
     zip: "91723", 
-    lat: "34.08467"  
+    lat: "34.08467",
     lng: "-117.88796",
     city: "West Covina, CA",
     author: "Jon C.",
@@ -821,7 +821,7 @@ const REVIEWS = [
   {
     id: 91,  
     zip: "90248", 
-    lat: "33.88136"  
+    lat: "33.88136",
     lng: "-118.2856",
     city: "Torrance, CA",
     author: "L Y.",
@@ -839,7 +839,7 @@ const REVIEWS = [
   {
     id: 93,  
     zip: "91708", 
-    lat: "33.95388"  
+    lat: "33.95388",
     lng: "-117.64766",
     city: "Chino Hills, CA",
     author: "Richard R.",
@@ -848,7 +848,7 @@ const REVIEWS = [
   {
     id: 94,  
     zip: "85641", 
-    lat: "31.98435"  
+    lat: "31.98435",
     lng: "-110.68538",
     city: "Tucson, AZ",
     author: "Malcolm F.",
@@ -857,7 +857,7 @@ const REVIEWS = [
   {
     id: 95,  
     zip: "91776", 
-    lat: "34.08736"  
+    lat: "34.08736",
     lng: "-118.09349",
     city: "Alhambra, CA",
     author: "Bill W.",
@@ -866,7 +866,7 @@ const REVIEWS = [
   {
     id: 96,  
     zip: "92637", 
-    lat: "33.60712"  
+    lat: "33.60712",
     lng: "-117.73108",
     city: "Aliso Viejo, CA",
     author: "Michael L.",
@@ -875,7 +875,7 @@ const REVIEWS = [
   {
     id: 97,  
     zip: "91750", 
-    lat: "34.14776"  
+    lat: "34.14776",
     lng: "-117.75206",
     city: "Pomona, CA",
     author: "Summer W.",
@@ -884,7 +884,7 @@ const REVIEWS = [
   {
     id: 98,  
     zip: "90292", 
-    lat: "33.97785"  
+    lat: "33.97785",
     lng: "-118.44527",
     city: "Marina Del Rey, CA",
     author: "Burt M.",
@@ -893,7 +893,7 @@ const REVIEWS = [
   {
     id: 99,  
     zip: "91701", 
-    lat: "34.14642"  
+    lat: "34.14642",
     lng: "-117.59114",
     city: "Alta Loma, CA",
     author: "Shawn M.",
@@ -902,7 +902,7 @@ const REVIEWS = [
   {
     id: 100, 
     zip: "91722", 
-    lat: "34.09663"  
+    lat: "34.09663",
     lng: "-117.90735",
     city: "Covina, CA",
     author: "Luc C.",
@@ -911,7 +911,7 @@ const REVIEWS = [
   {
     id: 101, 
     zip: "90623", 
-    lat: "33.85083"  
+    lat: "33.85083",
     lng: "-118.04352",
     city: "La Palma, CA",
     author: "Jason W.",
@@ -920,7 +920,7 @@ const REVIEWS = [
   {
     id: 102, 
     zip: "90248", 
-    lat: "33.88136"  
+    lat: "33.88136",
     lng: "-118.2856",
     city: "Jessica X.",
     author: "Torrance, CA",
@@ -929,7 +929,7 @@ const REVIEWS = [
   {
     id: 103, 
     zip: "90601", 
-    lat: "34.00327"  
+    lat: "34.00327",
     lng: "-118.02612",
     city: "Los Angeles, CA",
     author: "Daniel S.",
@@ -938,7 +938,7 @@ const REVIEWS = [
   {
     id: 104, 
     zip: "90601", 
-    lat: "34.00327"  
+    lat: "34.00327",
     lng: "-118.02612",
     city: "City of Industry, CA",
     author: "Qiong L.",
@@ -947,7 +947,7 @@ const REVIEWS = [
   {
     id: 105, 
     zip: "91748", 
-    lat: "33.97985"  
+    lat: "33.97985",
     lng: "-117.90317",
     city: "Rowland Heights, CA",
     author: "Zhilong J.",
@@ -956,7 +956,7 @@ const REVIEWS = [
   {
     id: 106, 
     zip: "91748", 
-    lat: "33.97985"  
+    lat: "33.97985",
     lng: "-117.90317",
     city: "Rowland Heights, CA",
     author: "Lujia Y.",
@@ -965,7 +965,7 @@ const REVIEWS = [
   {
     id: 107, 
     zip: "91765", 
-    lat: "33.99449"  
+    lat: "33.99449",
     lng: "-117.81831",
     city: "Diamond Bar, CA",
     author: "James L.",
