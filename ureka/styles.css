@@ -20,7 +20,7 @@
 
 .modal-open .ureka-modal {
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .modal-dialog {
@@ -123,7 +123,7 @@
   top: -9999px;
   width: 50px;
   height: 50px;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 @media (min-width: 576px) {
@@ -4932,7 +4932,7 @@ input[type="button"].btn-block {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  -ms-overflow-style: scrollbar;
+  /* -ms-overflow-style: scrollbar; */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
