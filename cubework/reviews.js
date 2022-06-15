@@ -728,6 +728,248 @@ const REVIEWS = [
     author: "George Chiao",
     text: "We’re happy with our new space out here in DT Houston. The Sales and Customer Service were extremely helpful and helped us move into our space within a week.",
   },
+  {
+    id: 81,
+    zip:  "90501",
+    lat: "33.83024",
+    lng: "-118.31354",
+    city: "Torrance, CA",
+    author: "RC Integrated Systems LLC",
+    text: "We are a small business and rent an office at Cubework's Torrance facility. It's a very nice place. The rent is affordable, including everything we need.",
+  },
+  {
+    id: 82,
+    zip:  "90601",
+    lat: "34.00327",
+    lng: "-118.02612",
+    city: "City of Industry, CA",
+    author: "LAUNCH",
+    text: "Cubework is a great place! Staff is friendly and attentive. Highly Recommend!",
+  },
+  {
+    id: 83,
+    zip:  "90601",
+    lat: "34.00327",
+    lng: "-118.02612",
+    city: "Los Angeles, CA",
+    author: "BellamoureBodyMist",
+    text: "CubeWork is truly a great solution for start-ups looking for office space or established companies that need additional warehouse space. We have been using CubeWork in City of Industry for more than a year. The facility is well managed, clean, safe & secured. Great experience!",
+  },
+  {
+    id: 84,
+    zip:  "90601",
+    lat: "34.00327",
+    lng: "-118.02612",
+    city: "City of Industry, CA",
+    author: "maradisneymama",
+    text: "Cubework is a great solution for small business like ours!",
+  },
+  {
+    id: 85,
+    zip:  "90601",
+    lat: "34.00327",
+    lng: "-118.02612",
+    city: "City of Industry, CA",
+    author: "Wang$ap",
+    text: "Cubework is a great community that partners with local businesses! Keep up the good work",
+  },
+  {
+    id: 86,
+    zip:  "90621",
+    lat: "33.8759",
+    lng: "-117.9937",
+    city: "Fullerton, CA",
+    author: "Andrew Bermudez",
+    text: "Have you heard of CubeWork? They are like wework for warehouse space & logistics and a client of ours. They are growing like crazy and doing well.",
+  },
+  {
+    id: 87,  
+    zip: "94701", 
+    lat: "37.8718" 
+    lng: "-122.2718",
+    city: "Berkeley, CA",
+    author: "Johnny M.",
+    text: "Overall, we at DMA Transportation are very pleased with the rental experience. Eunice and Angela, the City of Industry representatives, have been fantastic to work with. They treat tenants well and handle facility requests in a professional demeanor."
+  },
+  {
+    id: 88,  
+    zip: "60031", 
+    lat: "42.37818"  
+    lng: "-87.943",
+    city: "Gurnee, IL",
+    author: "Davey C.",
+    text: "We give Cubework a full 5 stars. Not only are they willing to work with us, but they are flexible and understanding. They are very thorough with their requirements and have helped us tremendously by providing us the perfect office and space we needed to run our business, Blue Line Tours & Charters."
+  },
+  {
+    id: 89,  
+    zip: "91775", 
+    lat: "34.11632"  
+    lng: "-118.09267",
+    city: "San Gabriel, CA",
+    author: "Eva H.",
+    text: "Great for start up company to share the warehouse spaces.  Customer service is always quick to respond to my questions!  Highly recommended for small businesses that need some warehouse spaces."
+  },
+  {
+    id: 90,  
+    zip: "91723", 
+    lat: "34.08467"  
+    lng: "-117.88796",
+    city: "West Covina, CA",
+    author: "Jon C.",
+    text: "First off I would really like to thank the team at Cubework. They are professional and helpful and really treated us well. I went to them when I had an overflow situation (due to a miscalculation of inventory) and they really had exactly what I needed. Something short term with around the clock accessibility and a well maintained facility and competitive prices( especially in terms or short term or temporary means). They really came through in my time of need. They have all sorts of set ups and cater to numerous types of businesses."
+  },    
+  {
+    id: 91,  
+    zip: "90248", 
+    lat: "33.88136"  
+    lng: "-118.2856",
+    city: "Torrance, CA",
+    author: "L Y.",
+    text: "I was overflowing in my current warehouse and needed a place to store quickly. Cubework helped me get space for the 2 months I needed space. Worked out great. Every year will come back. Thanks!"
+  },
+  {
+    id: 92,    
+    zip: "", 
+    lat: "40.9837209",
+    lng: "29.1234113", 
+    city: "Ataşehir, Turkey",
+    author: "Xiangxin L.",
+    text: "Good space, very kind staff, fast internet, that's convenience to our company. I will recommend to my friend."
+  },
+  {
+    id: 93,  
+    zip: "91708", 
+    lat: "33.95388"  
+    lng: "-117.64766",
+    city: "Chino Hills, CA",
+    author: "Richard R.",
+    text: "Thanks for the great service to the El Monte Location.  It is a great place for small businesses like myself to grow with office and warehouse space.  Thank you!"
+  },
+  {
+    id: 94,  
+    zip: "85641", 
+    lat: "31.98435"  
+    lng: "-110.68538",
+    city: "Tucson, AZ",
+    author: "Malcolm F.",
+    text: "Great place to go for flexible warehouse needs. They have long term, short term leases available for any size. Even with office space, meeting rooms and amenities. They even have shared forklifts available. Great for startups and small businesses."
+  },
+  {
+    id: 95,  
+    zip: "91776", 
+    lat: "34.08736"  
+    lng: "-118.09349",
+    city: "Alhambra, CA",
+    author: "Bill W.",
+    text: "This place is great for small business or startup who looking for both office space and inventory space with limited budget. I am an Amazon seller and running my own Shopify store. This is perfect match what we need."
+  },
+  {
+    id: 96,  
+    zip: "92637", 
+    lat: "33.60712"  
+    lng: "-117.73108",
+    city: "Aliso Viejo, CA",
+    author: "Michael L.",
+    text: "Cubework has been exceptional since the first day we moved in and was very accommodating with everything we asked. They're professional, courteous and fast to respond with our questions and concerns. I strongly recommend them if anyone is looking for warehousing for storage."
+  },
+  {
+    id: 97,  
+    zip: "91750", 
+    lat: "34.14776"  
+    lng: "-117.75206",
+    city: "Pomona, CA",
+    author: "Summer W.",
+    text: "We are a tenant at cubework warehouse. This is the best warehouse that we have rented!! we 100% recommend anyone to chem them out!! -- LongFa US LLC"
+  },
+  {
+    id: 98,  
+    zip: "90292", 
+    lat: "33.97785"  
+    lng: "-118.44527",
+    city: "Marina Del Rey, CA",
+    author: "Burt M.",
+    text: "Great location for warehouse and office. Terrific staff, always very helpful! Fast Wifi, Beautiful conference room Easy access to warehouse"
+  },
+  {
+    id: 99,  
+    zip: "91701", 
+    lat: "34.14642"  
+    lng: "-117.59114",
+    city: "Alta Loma, CA",
+    author: "Shawn M.",
+    text: "3 month leases, square footage any size, upfront pricing for everything included with WIFI reception, meeting room, etc.  Cubework is most professional"
+  },
+  {
+    id: 100, 
+    zip: "91722", 
+    lat: "34.09663"  
+    lng: "-117.90735",
+    city: "Covina, CA",
+    author: "Luc C.",
+    text: "Currently renting from cubework. Great staff with strong ability to help all tenants. They are willing to go out of their way to ensure you have all the tools you need for your business to flourish and grow. The facility is always clean and kept tidy for shared space areas. The idea of shared warehousing is top notch here at cubework. I would definitely recommend others to use them!"
+  },
+  {
+    id: 101, 
+    zip: "90623", 
+    lat: "33.85083"  
+    lng: "-118.04352",
+    city: "La Palma, CA",
+    author: "Jason W.",
+    text: "What a great facility. I currently rent from the Irvine location and I love it. Elizabeth and Brian are both extremely nice and friendly. The people in the office are all friendly as well. I can't say enough good things about Cubework!"
+  },
+  {
+    id: 102, 
+    zip: "90248", 
+    lat: "33.88136"  
+    lng: "-118.2856",
+    city: "Jessica X.",
+    author: "Torrance, CA",
+    text: "I rent Cubework Irvine as my office and it's a nice place to stay and work. Workers are nice and the environment is pretty good. I enjoyed the working time here."
+  },
+  {
+    id: 103, 
+    zip: "90601", 
+    lat: "34.00327"  
+    lng: "-118.02612",
+    city: "Los Angeles, CA",
+    author: "Daniel S.",
+    text: "I needed a flexible and affordable warehouse space to store some items for my small business. Cubework has been wonderful in adjusting prices to my needs."
+  },
+  {
+    id: 104, 
+    zip: "90601", 
+    lat: "34.00327"  
+    lng: "-118.02612",
+    city: "City of Industry, CA",
+    author: "Qiong L.",
+    text: "Cubework is the new leasing method allows us to have an independent warehouse, which is convenient for unloading and storage. 900 Turnbull Canyon Rd, City of Industry, CA 91745. It is very safe. Their service staff are professional and friendly. They can solve our actual problems immediately and will recommend more friends to join."
+  },
+  {
+    id: 105, 
+    zip: "91748", 
+    lat: "33.97985"  
+    lng: "-117.90317",
+    city: "Rowland Heights, CA",
+    author: "Zhilong J.",
+    text: "Comparing lots of local coworking spaces, Cubework would be the first choice for me. The place customize the office and warehouse for you depends on the size of your business and which type of services are you looking for. Very amazing working space with reasonable price. The most important thing, no credit check needed and no long term leasing needed. After evaluating lots of other co-working office and warehouse. I will definitely choose Cubework!"
+  },
+  {
+    id: 106, 
+    zip: "91748", 
+    lat: "33.97985"  
+    lng: "-117.90317",
+    city: "Rowland Heights, CA",
+    author: "Lujia Y.",
+    text: "Its the best warehouse / office i have ever had! We are a start-up company looking for a place can combine office and small size warehouse together. Cubework is the perfect place to expand my business, no credit check, flexible rental terms, short-term leasing friendly, so i don't need to deal with 3LP warehouse's messy operation systems, so glad i choose Cubework!"
+  },
+  {
+    id: 107, 
+    zip: "91765", 
+    lat: "33.99449"  
+    lng: "-117.81831",
+    city: "Diamond Bar, CA",
+    author: "James L.",
+    text: "Cubework is the best coworking and largest industrial workspace in the world.  I use Cubework in multiple locations across the US and Canada coming soon.  Members can sign-up and move in 300-20,000 square feet under 1 hour.  Great partners!"
 ];
 
 
