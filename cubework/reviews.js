@@ -918,15 +918,6 @@ const REVIEWS = [
     text: "What a great facility. I currently rent from the Irvine location and I love it. Elizabeth and Brian are both extremely nice and friendly. The people in the office are all friendly as well. I can't say enough good things about Cubework!"
   },
   {
-    id: 102, 
-    zip: "90248", 
-    lat: "33.88136",
-    lng: "-118.2856",
-    city: "Jessica X.",
-    author: "Torrance, CA",
-    text: "I rent Cubework Irvine as my office and it's a nice place to stay and work. Workers are nice and the environment is pretty good. I enjoyed the working time here."
-  },
-  {
     id: 103, 
     zip: "90601", 
     lat: "34.00327",
