@@ -470,7 +470,9 @@ async function fetchReviews() {
         logUrekaCtaClick(true, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         const modal = document.querySelector("#ureka-modal");
+        const backdrop = document.querySelector(".modal-backdrop");
         modal.classList.toggle("show");
+        backdrop.classList.toggle("show");
         document.body.classList.toggle('modal-open')
         setTimeout(() => {
           window.location.href = CTA_URL;
