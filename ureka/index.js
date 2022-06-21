@@ -469,10 +469,10 @@ async function fetchReviews() {
         console.log('Ureka CTA Click', true, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(true, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        const modal = document.querySelector("#ureka-modal");
+        modal.classList.toggle("show");
+        document.body.classList.toggle('modal-open')
         setTimeout(() => {
-          const modal = document.querySelector("#ureka-modal");
-          modal.classList.toggle("show");
-          document.body.classList.toggle('modal-open')
           window.location.href = CTA_URL;
         }, 500)
       } else if (e.target.href === CTA_URL) {
