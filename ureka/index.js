@@ -469,7 +469,12 @@ async function fetchReviews() {
         console.log('Ureka CTA Click', true, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(true, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        setTimeout(() => {window.location.href = CTA_URL;}, 1000)
+        setTimeout(() => {
+          const modal = document.querySelector("#ureka-modal");
+          modal.classList.toggle("show");
+          document.body.classList.toggle('modal-open')
+          window.location.href = CTA_URL;
+        }, 500)
       } else if (e.target.href === CTA_URL) {
         console.log('Other CTA Click', false, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(false, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
@@ -486,9 +491,9 @@ async function fetchReviews() {
   // setTimeout(() => {
   //   if(!modal.classList.contains('show')) {
   //     modal.classList.toggle("show");
+  //     document.body.classList.toggle('modal-open')
   //     modal.style.display = modal.style.display === "block" ? "none" : "block" ;
   //     // modal.classList.toggle("show");
-  //     document.body.classList.toggle('modal-open')
   //     document.body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop fade show"></div>')
   //   }
   // }, 300)
@@ -537,3 +542,48 @@ async function fetchReviews() {
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "cctdlea808");
+
+// jquery
+// (function(){
+//     var bp=document.createElement('script');
+//     bp.type='text/javascript';
+//     bp.async=true;
+//     bp.src='https://code.jquery.com/jquery-3.2.1.slim.min.js';
+//     bp.integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN";
+//     bp.crossorigin = "anonymous";
+//     var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)
+//     window.dataLayer = window.dataLayer || [];
+// })();
+// // popper
+// (function(){
+//     var bp=document.createElement('script');
+//     bp.type='text/javascript';
+//     bp.async=true;
+//     bp.src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js';
+//     bp.integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q";
+//     bp.crossorigin = "anonymous";
+//     var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)
+//     window.dataLayer = window.dataLayer || [];
+// })();
+
+// // bootstrap
+// (function(){
+//     var bp=document.createElement('script');
+//     bp.type='text/javascript';
+//     bp.async=true;
+//     bp.src='https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js';
+//     bp.integrity = "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl";
+//     bp.crossorigin = "anonymous";
+//     var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)
+//     window.dataLayer = window.dataLayer || [];
+// })();
+
+// // reviews
+// (function(){
+//     var bp=document.createElement('script');
+//     bp.type='text/javascript';
+//     bp.async=true;
+//     bp.src='https://fomobutton.netlify.app/ureka/reviews.js';
+//     var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)
+//     window.dataLayer = window.dataLayer || [];
+// })();
