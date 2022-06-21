@@ -5311,7 +5311,7 @@ button.close {
   }
 }
 
-.review_text::-webkit-scrollbar {
+/* .review_text::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 5px;
 }
@@ -5320,7 +5320,7 @@ button.close {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .3);
   box-shadow: 0 0 1px rgba(255, 255, 255, .3);
-}
+} */
 
 .modal-content:hover .review_text {
   /* color: #28215d; */
