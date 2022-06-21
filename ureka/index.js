@@ -29,7 +29,7 @@ const modalWrapper = `
 `
 
 const SHEETY_API_URL = "https://api.sheety.co/e6308a30988c2a9e6e0ead2fd194efa5/cleverlinkMetrics"
-const CTA_URL = "https://fomobutton.com/#details"
+const CTA_URL = "https://dev-fomobutton.carrd.co/#details"
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
