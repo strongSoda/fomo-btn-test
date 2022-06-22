@@ -32,6 +32,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
 const SHEETY_API_URL = "https://api.sheety.co/e6308a30988c2a9e6e0ead2fd194efa5/cubeworkMetrics"
 const CTA_URL = "https://app.squarespacescheduling.com/schedule.php?owner=23738166"
+var DEMOGRAPHICS_DATA;
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -121,7 +122,8 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
       date: date,
       time: time,
       ureka: ureka,
-      utcTime: utcTime
+      utcTime: utcTime,
+      city: DEMOGRAPHICS_DATA.city ? DEMOGRAPHICS_DATA.city : 'NA',
     }
   }
   console.log('###############', body, url);
@@ -341,6 +343,7 @@ const getLocationFromIP = async () => {
   );
   const data = await res?.json();
   console.log(data);
+  DEMOGRAPHICS_DATA=data;
   console.log('DEMOGRAPHICS', data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
   logDemographics(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString())
   console.log('DEMOGRAPHICS logged', data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
