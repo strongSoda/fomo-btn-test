@@ -53,6 +53,33 @@ const REVIEWS = [
     author: "Lawson Reed",
     text: "This could be amazing.  It's the little nudge a customer needs just before they make a purchase.",
   },
+    {
+    id: 6,
+    zip: "21201",
+    lat: "39.29539",
+    lng: "-76.62394",
+    city: "Baltimore, Maryland, US",
+    author: "Kristen Garrison",
+    text: "I think this is a great idea, as someone who has a lot of local customers and who has abandoned carts. I submitted a request to be a beta tester",
+  },
+    {
+    id: 7,
+    zip: "1014",
+    lat: "47.4979",
+    lng: "19.0402",
+    city: "Budapest",
+    author: "Artive.tech",
+    text: "You've done an excellent job! The concept is amazing and unique from my perspective.",
+  },
+    {
+    id: 8,
+    zip: "53558",
+    lat: "43.00641",
+    lng: "-89.28799",
+    city: "Madison, Wisconsic, US",
+    author: "Healthyrich.co",
+    text: "Really interesting idea! This is a good response to the feeling that online reviews are unreliable because users are so anonymous and companies can cherrypick. I'd like to see the location displayed under the user's name as additional proof that they're in my area; it would make me feel more connected with them.",
+  },
 ];
 
 
