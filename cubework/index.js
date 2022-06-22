@@ -123,9 +123,10 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
       time: time,
       ureka: ureka,
       utcTime: utcTime,
+      ctaCity: DEMOGRAPHICS_DATA.city
     }
   }
-  console.log('###############', body, url);
+  console.log('###############', body, url, );
 
   try {
     const res = await fetch(url, {
