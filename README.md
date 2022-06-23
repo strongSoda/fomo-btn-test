@@ -1,5 +1,14 @@
 ## FOMO Button
 
+### Get started
+
+1. Clone repo `git clone https://github.com/strongSoda/fomo-btn-test.git`
+2. You can add the repo as remote to your local `git remote add origin https://github.com/strongSoda/fomo-btn-test.git`
+3. Create a new branch `git checkout -b branch_name`
+4. Update code
+5. Push your branch `git push origin branch_name`
+6. Open a PR `branch_name` -> `main`
+
 ### Steps for adding a new client
 
 1. Copy and rename the `template/` folder
@@ -87,3 +96,9 @@ const ctaBtn =
 <!-- FOMO Button -->
 <!-- --------- END --------- -->
 ```
+
+### Post button installlation setup
+
+1. sheety
+2. google analytics
+3. microsoft clarity (session replay)

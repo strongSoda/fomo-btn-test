@@ -38,8 +38,8 @@ const modalWrapper = `
 </script>
 `
 
-const SHEETY_API_URL = "https://api.sheety.co/75b561b8b17e789849228078912aed73/cubeworkMetrics"
-const CTA_URL = "https://lunchbreak4kids.com/meal-plans/"
+const SHEETY_API_URL = "#"
+const CTA_URL = "#"
 
 
 function isInViewport(element) {
