@@ -44,15 +44,6 @@ const REVIEWS = [
     author: "Ankush Singh",
     text: "Can be super cool for enterprise clients, especially the ones who have attained a level of clientele because that there will be someone from the neighborhood which would be available to be shown there. I think that's and that's a very interesting idea. I would like to give it a try if I come across something like that and have an enterprise because that's an exciting idea. But overall, I think it can be a good B2 B solution for established enterprises. Good luck with that.",
   },
-  {
-    id: 5,
-    zip: "91745",
-    lat: "42.38005",
-    lng: "-71.13295",
-    city: "Cambridge, MA",
-    author: "Lawson Reed",
-    text: "This could be amazing.  It's the little nudge a customer needs just before they make a purchase.",
-  },
     {
     id: 6,
     zip: "21201",
