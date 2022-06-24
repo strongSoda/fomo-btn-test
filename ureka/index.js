@@ -480,6 +480,7 @@ async function fetchReviews() {
         setTimeout(() => {
           modal.style.display = "none";
           modal.ariaHidden = "true";
+          backdrop.remove();
           window.location.href = CTA_URL;
         }, 500)
       } else if (e.target.href === CTA_URL) {
