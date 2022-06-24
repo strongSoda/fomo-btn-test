@@ -6,7 +6,7 @@ const REVIEWS = [
     lat: "33.87449",
     lng: "-118.37203",
     zip: "90278",
-    city: "Redondo Beach",
+    city: "",
   },
   {
     id: 1,
@@ -15,7 +15,7 @@ const REVIEWS = [
     lat: "33.87449",
     lng: "-118.37203",
     zip: "90278",
-    city: "Redondo Beach",
+    city: "",
   },
   {
     id: 2,
@@ -24,6 +24,6 @@ const REVIEWS = [
     lat: "33.87449",
     lng: "-118.37203",
     zip: "90278",
-    city: "Redondo Beach",
+    city: "",
   },
 ];
