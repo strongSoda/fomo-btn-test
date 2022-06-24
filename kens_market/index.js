@@ -296,13 +296,13 @@ function createElementFromHTML(htmlString) {
 
 
 const carousel_controls = `<div class="d-flex justify-content-between mb-4 position-relative">
-                                <a class="ureka-modal-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
+                                <button style="background: none; border: none; cursor: pointer;" class="ureka-modal-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
                                   <i class="fas fa-angle-left pe-2"></i>&nbsp;<span>Previous</span>
-                                </a>
-                                <a class="ureka-modal-control position-relative" href="#" role="button" data-slide="next" data-target="#carouselMultiItemExample">
+                                </button>
+                                <button style="background: none; border: none; cursor: pointer;" class="ureka-modal-control position-relative" href="#" role="button" data-slide="next" data-target="#carouselMultiItemExample">
                                   <span>Next</span>&nbsp;<i class="fas fa-angle-right pe-2" role="img" class="md hydrated"
                                         aria-label="chevron back outline"></i>
-                                </a>
+                                </button>
                             </div>`
 
 const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Contact</a>`
