@@ -305,7 +305,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </button>
                             </div>`
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Contact</a>`
+const ctaBtn = `<button id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto">Contact</button>`
 
 let MY_LOCATION = null
 
@@ -514,6 +514,16 @@ async function fetchReviews() {
         console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        
+        const modal = document.querySelector("#ureka-modal");
+        const backdrop = document.querySelector(".modal-backdrop");
+        modal.classList.toggle("show");
+        backdrop.classList.toggle("show");
+        document.body.classList.toggle('modal-open')
+        setTimeout(() => {
+          window.location.href = CTA_URL;
+        }, 500)
+
       } else if (e.target.href === CTA_URL) {
         console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
