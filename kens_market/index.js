@@ -228,7 +228,8 @@ let UREKA_BTN_FOCUSED = false;
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
-    reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
+    document.body.insertAdjacentHTML('beforeend', modalWrapper)
+    // reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
     reviewsTriggerBtn.addEventListener('click', (e) => {
       fetchReviews()
       console.log('Clicked');
