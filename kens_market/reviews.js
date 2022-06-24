@@ -11,7 +11,7 @@ const REVIEWS = [
   {
     id: 1,
     author: "LA PACTS",
-    text: "great place"
+    text: "great place",
     lat: "33.87449",
     lng: "-118.37203",
     zip: "90278",
