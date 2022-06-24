@@ -474,6 +474,8 @@ async function fetchReviews() {
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         const modal = document.querySelector("#ureka-modal");
         const backdrop = document.querySelector(".modal-backdrop");
+        modal.style.display = "none";
+        modal.ariaHidden = "true";
         modal.classList.toggle("show");
         backdrop.classList.toggle("show");
         document.body.classList.toggle('modal-open')

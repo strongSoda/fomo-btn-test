@@ -517,6 +517,8 @@ async function fetchReviews() {
         
         const modal = document.querySelector("#ureka-modal");
         const backdrop = document.querySelector(".modal-backdrop");
+        modal.style.display = "none";
+        modal.ariaHidden = "true";
         modal.classList.toggle("show");
         backdrop.classList.toggle("show");
         document.body.classList.toggle('modal-open')
