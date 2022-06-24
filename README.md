@@ -29,11 +29,15 @@
 modal_footer.innerHTML = modal_footer.innerHTML + ctaBtn;
 ```
 
-Change the CTA text and link.
+Change the CTA link:
 
 ```javascript
-const ctaBtn =
-  '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary m-auto" href="https://lunchbreak4kids.com/meal-plans/">GetStarted</a>';
+const CTA_URL = ""
+```
+
+and text:
+```
+const ctaBtn = ...
 ```
 
 5. Get the plugin code to embed for new client by substituting value for `client_folder_name` in the following template at all appropriate places. This will work after code is in master branch.
