@@ -40,7 +40,7 @@ const modalWrapper = `
 
 const SHEETY_API_URL = "#"
 const CTA_URL = "#"
-
+const SOURCES = {"PH": "https://cdn-icons-png.flaticon.com/512/2111/2111581.png"}
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -386,11 +386,18 @@ function buidReviewsDom(reviews, active=true) {
     const review_text = document.createElement("p");
     const review_author_h5 = document.createElement("h5");
     const review_city = document.createElement("p");
+    const review_author_img = document.createElement("img");
+    const review_source_img = document.createElement("img");
 
     review_text.innerHTML = '<i class="fas fa-quote-left pe-2"></i>&nbsp;' + r.text + '&nbsp;<i class="fas fa-quote-right pe-2"></i>'
     review_author_h5.innerHTML = r.author;
     review_city.innerHTML = r.city;
+    review_author_img.src = r.img;
+    review_source_img.src = SOURCES[r.source]
 
+
+    col_lg_4.appendChild(review_author_img)
+    col_lg_4.appendChild(review_source_img)
     col_lg_4.appendChild(review_author_h5)
     col_lg_4.appendChild(review_city)
     col_lg_4.appendChild(review_text)
@@ -402,6 +409,15 @@ function buidReviewsDom(reviews, active=true) {
     review_author_h5.classList.add("review_author");
     review_author_h5.classList.add("mb-3");
     review_city.classList.add('review_city');
+    review_source_img.classList.add('review_source_img');
+    review_author_img.classList.add('rounded-circle', 'shadow-1-strong', 'mb-4')
+    review_source_img.classList.add('rounded-circle', 'shadow-1-strong', 'mb-4');
+
+    review_author_img.style.width = "150px"
+    review_source_img.style.width = "25px"
+
+    review_author_img.style.alt = "avatar"
+    review_source_img.style.alt = "source"
 
 
     if(idx!=0) {
@@ -456,7 +472,7 @@ async function fetchReviews() {
   }
 
   setTimeout(() => {
-    loadingText.innerHTML = 'Reviews from your neighbors'
+    loadingText.innerHTML = 'Reviews from people near you'
     reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
     let reviews_container
@@ -522,5 +538,5 @@ async function fetchReviews() {
     } catch(e) {
           console.log(e);
       }
-  }, 3000)
+  }, 1400)
 }

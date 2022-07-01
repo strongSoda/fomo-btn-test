@@ -147,7 +147,7 @@ const REVIEWS = [
     text:
       "Nicely done.",
     img:
-      "https://https://ph-avatars.imgix.net/319349/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=170&h=170&fit=crop&dpr=2",
+      "https://ph-avatars.imgix.net/319349/original?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=170&h=170&fit=crop&dpr=2",
     lat: "39.9526",
     lng: "75.1652",
     zip: "90254",

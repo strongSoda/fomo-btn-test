@@ -5400,7 +5400,7 @@ input:checked+.slider:before {
 }
 .eureka-title {
   font-size: 2em !important;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 #reviews-tigger-btn, #ureka-cta {
   background-color: #6b63ff;
@@ -5421,8 +5421,12 @@ input:checked+.slider:before {
   filter: brightness(112%);
 }
 .review_author {
-  color: #29a329;
+  color: #6b63ff;
 }
 .ureka-modal-control {
-  color: #29a329;
+  color: #6b63ff;
+}
+.review_source_img {
+  position: absolute;
+  left: 25%;
 }
