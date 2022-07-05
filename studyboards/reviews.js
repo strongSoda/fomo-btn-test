@@ -5,7 +5,7 @@ const REVIEWS = [
     text: "Studyboards is definitely a unique product whih makes the process of learning English more exciting and productive. From the student's perspective I highly recommend Studyboards because it really helps you organize yourself and be in touch with your teacher. You can do homework, refreshing last lessons, learn new words from anywhere using laptop or smartphone at any moment you want.",
     lat: "51.9011559",
     lng: "-3.3815119",
-    city: "Holand",
+    city: "Holland",
   },
   {
     id: 1,
