@@ -39,7 +39,7 @@ const modalWrapper = `
 `
 
 const SHEETY_API_URL = "#"
-const CTA_URL = "https://studyboards.net/#sign"
+const CTA_URL = "https://studyboards.net/#contactForm"
 
 
 function isInViewport(element) {
