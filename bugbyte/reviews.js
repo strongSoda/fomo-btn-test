@@ -74,7 +74,7 @@ const REVIEWS = [
     zip: "92120",
     city: 'San Diego, CA',
     source: 'GOOGLE',
-    img: ""
+    img: "https://i.imgur.com/HzidZ95.png"
   },
   {
     id: 7,
