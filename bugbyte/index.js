@@ -37,6 +37,10 @@ const modalWrapper = `
   <p class="my-2">Advanced Matching</p>
 </div> */}
 
+const SHEETY_API_URL = "#"
+const CTA_URL = "https://bugbytestudios.com/registration/"
+const SOURCES = {"PH": "https://cdn-icons-png.flaticon.com/512/2111/2111581.png", "GOOGLE": "https://services.google.com/fh/files/misc/google_g_icon_download.png"}
+
 const loadingBox = `<div class="cssload-box-loading"></div>`;
 let is_advanced_mode = false;
 // let is_advanced_mode = localStorage.getItem("is_advanced_mode");
@@ -93,7 +97,8 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = '<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="https://bugbytestudios.com/registration/">Book an Intro Lesson</a>'
+                            
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href=href="${CTA_URL}">Book an Intro Lesson</a>`
 
 let MY_LOCATION = null
 
@@ -173,11 +178,17 @@ function buidReviewsDom(reviews, active=true) {
     const review_text = document.createElement("p");
     const review_author_h5 = document.createElement("h5");
     const review_city = document.createElement("p");
+    const review_author_img = document.createElement("img");
+    const review_source_img = document.createElement("img");
 
     review_text.innerHTML = '<i class="fas fa-quote-left pe-2"></i>&nbsp;' + r.text + '&nbsp;<i class="fas fa-quote-right pe-2"></i>'
     review_author_h5.innerHTML = r.author;
     review_city.innerHTML = r.city;
+    review_author_img.src = r.img;
+    review_source_img.src = SOURCES[r.source]
 
+    col_lg_4.appendChild(review_author_img)
+    col_lg_4.appendChild(review_source_img)
     col_lg_4.appendChild(review_author_h5)
     col_lg_4.appendChild(review_city)
     col_lg_4.appendChild(review_text)
@@ -189,6 +200,16 @@ function buidReviewsDom(reviews, active=true) {
     review_author_h5.classList.add("review_author");
     review_author_h5.classList.add("mb-3");
     review_city.classList.add('review_city');
+    review_source_img.classList.add('review_source_img');
+    review_author_img.classList.add('review_author_img')
+    review_author_img.classList.add('rounded-circle', 'shadow-1-strong', 'mb-4')
+    review_source_img.classList.add('rounded-circle', 'shadow-1-strong', 'mb-4');
+    
+    review_author_img.style.width = "150px"
+    review_source_img.style.width = "25px"
+
+    review_author_img.style.alt = "avatar"
+    review_source_img.style.alt = "source"
 
 
     if(idx!=0) {
@@ -258,9 +279,12 @@ async function fetchReviews() {
       ascending_reviews.sort((a,b) => a.distance - b.distance) // b - a for reverse sort
       // console.log('ascending', ascending_reviews); // b - a for reverse sort
       
-      for (var i = 0; i+3 < ascending_reviews.length; i += 3) {
+      for (var i = 0; i < ascending_reviews.length; i += 3) {
         // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
-        const three_reviews = [ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]]
+        const first_review = ascending_reviews[i] ? ascending_reviews[i] : ascending_reviews[0]
+        const second_review = ascending_reviews[i+1] ? ascending_reviews[i+1] : ascending_reviews[1]
+        const three_review = ascending_reviews[i+2] ? ascending_reviews[i+2] : ascending_reviews[2]
+        const three_reviews = [first_review, second_review, three_review]
         if(i===0) {
           reviewsContent.appendChild(buidReviewsDom(three_reviews, true))
         } else {

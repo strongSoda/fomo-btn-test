@@ -7,6 +7,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: "https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg"
   },
   {
     id: 1,
@@ -16,6 +18,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: "https://www.incimages.com/uploaded_files/image/1920x1080/getty_481292845_77896.jpg"
   },
   {
     id: 2,
@@ -25,6 +29,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: "https://cdn.hswstatic.com/gif/play/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg"
   },
   {
     id: 3,
@@ -34,6 +40,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: ""
   },
   {
     id: 4,
@@ -43,6 +51,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: ""
   },
   {
     id: 5,
@@ -52,6 +62,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: ""
   },
   {
     id: 6,
@@ -61,6 +73,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: ""
   },
   {
     id: 7,
@@ -70,6 +84,8 @@ const REVIEWS = [
     lng: "-117.07549",
     zip: "92120",
     city: 'San Diego, CA',
+    source: 'GOOGLE',
+    img: ""
   },
 ];
 
