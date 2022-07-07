@@ -4,7 +4,7 @@ const modalWrapper = `
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h5 class="modal-title w-100 eureka-title" id="exampleModalLongTitle">
-                        Searching for nearest reviews ...
+                        Searching ...
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
@@ -265,7 +265,7 @@ async function fetchReviews() {
   }
 
   setTimeout(() => {
-    loadingText.innerHTML = 'Reviews from your neighbors'
+    loadingText.innerHTML = 'Voices from Kenya'
     reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
     let reviews_container
