@@ -39,7 +39,7 @@ const modalWrapper = `
 `
 
 const SHEETY_API_URL = "#"
-const CTA_URL = "https://studyboards.net/#contactForm"
+const CTA_URL = "https://doulacall.as.me/schedule.php"
 
 
 function isInViewport(element) {
@@ -304,7 +304,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Sign up</a>`
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Book a consultation</a>`
 
 let MY_LOCATION = null
 
@@ -456,7 +456,7 @@ async function fetchReviews() {
   }
 
   setTimeout(() => {
-    loadingText.innerHTML = 'See what our users say'
+    loadingText.innerHTML = 'What our parents are saying'
     reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
     let reviews_container

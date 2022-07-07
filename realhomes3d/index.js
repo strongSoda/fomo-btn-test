@@ -39,7 +39,7 @@ const modalWrapper = `
 `
 
 const SHEETY_API_URL = "#"
-const CTA_URL = "https://studyboards.net/#contactForm"
+const CTA_URL = "https://realhomes3d.carrd.co/#contact"
 
 
 function isInViewport(element) {
@@ -228,7 +228,8 @@ let UREKA_BTN_FOCUSED = false;
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
-    reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
+    document.body.insertAdjacentHTML('beforeend', modalWrapper)
+    // reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
     reviewsTriggerBtn.addEventListener('click', (e) => {
       fetchReviews()
       console.log('Clicked');
@@ -295,16 +296,16 @@ function createElementFromHTML(htmlString) {
 
 
 const carousel_controls = `<div class="d-flex justify-content-between mb-4 position-relative">
-                                <a class="ureka-modal-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
+                                <button style="background: none; border: none; cursor: pointer;" class="ureka-modal-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
                                   <i class="fas fa-angle-left pe-2"></i>&nbsp;<span>Previous</span>
-                                </a>
-                                <a class="ureka-modal-control position-relative" href="#" role="button" data-slide="next" data-target="#carouselMultiItemExample">
+                                </button>
+                                <button style="background: none; border: none; cursor: pointer;" class="ureka-modal-control position-relative" href="#" role="button" data-slide="next" data-target="#carouselMultiItemExample">
                                   <span>Next</span>&nbsp;<i class="fas fa-angle-right pe-2" role="img" class="md hydrated"
                                         aria-label="chevron back outline"></i>
-                                </a>
+                                </button>
                             </div>`
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Sign up</a>`
+const ctaBtn = `<button id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto">Contact</button>`
 
 let MY_LOCATION = null
 
@@ -456,7 +457,7 @@ async function fetchReviews() {
   }
 
   setTimeout(() => {
-    loadingText.innerHTML = 'See what our users say'
+    loadingText.innerHTML = 'Reviews from your neighbors'
     reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
     let reviews_container
@@ -513,6 +514,19 @@ async function fetchReviews() {
         console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
         console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        
+        const modal = document.querySelector("#ureka-modal");
+        const backdrop = document.querySelector(".modal-backdrop");
+        modal.classList.toggle("show");
+        backdrop.classList.toggle("show");
+        document.body.classList.toggle('modal-open')
+        setTimeout(() => {
+          modal.style.display = "none";
+          modal.ariaHidden = "true";
+          backdrop.remove()
+          window.location.href = CTA_URL;
+        }, 500)
+
       } else if (e.target.href === CTA_URL) {
         console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
         logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
