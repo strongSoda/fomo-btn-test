@@ -540,3 +540,24 @@ async function fetchReviews() {
       }
   }, 1400)
 }
+
+// function addTwoNumbers(a, b) {
+//   return a + b;
+// }
+
+// function capitalizeFirstLetter(string) {
+//   return string.charAt(0).toUpperCase() + string.slice(1);
+// }
+
+
+
+// function unixToDate(unix) {
+//   return new Date(unix * 1000);
+// }
+// function currentUnixTime() {
+//   return Math.floor(Date.now() / 1000);
+// }
+// function dateToUnix(date) {
+//   return Math.floor(date.getTime() / 1000);
+// }
+
