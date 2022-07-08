@@ -331,7 +331,7 @@ async function fetchReviews() {
     } catch(e) {
        console.log(e);
       }
-  }, 3000)
+  }, 1500)
 
   // setTimeout(() => {
   //   if(!modal.classList.contains('show')) {
