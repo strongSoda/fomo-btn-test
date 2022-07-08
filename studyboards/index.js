@@ -304,7 +304,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Write to us now</a>`
+const ctaBtn = `<button id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" onClick="location.href= 'https://studyboards.net/#contactForm'">Write to us now</button>`
 
 let MY_LOCATION = null
 
@@ -524,3 +524,7 @@ async function fetchReviews() {
     //   }
   }, 3000)
 }
+
+// function redirect() {
+//   window.location.href= CTA_URL
+// }
