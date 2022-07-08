@@ -5433,6 +5433,6 @@ input:checked+.slider:before {
   height: 20px;
   border-radius: 200px;
 } */
-#ureka-modal br {
+button#reviews-tigger-btn br {
   display: none;
 }
