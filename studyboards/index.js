@@ -206,9 +206,9 @@ const logUrekaBtnFocus = async (currenturl, date, time, utcTime) => {
   });
 }
 
-console.log('Visit', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-logVisit(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-console.log('Visit logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+// console.log('Visit', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+// logVisit(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+// console.log('Visit logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
 
 // Advanced mode
 {/* <div class="mr-auto" id="advanced-mode">
@@ -233,34 +233,34 @@ window.addEventListener('DOMContentLoaded', (event) => {
       fetchReviews()
       console.log('Clicked');
 
-      console.log('Click', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      logTriggerBtnClick(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-      console.log('Click logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      // console.log('Click', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      // logTriggerBtnClick(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+      // console.log('Click logged', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
     })
    
 
 
-    document.addEventListener('click', (e) => {
-      if (e.target.href === CTA_URL && e.target.id !== "ureka-cta") {
-        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      }
-    })
+    // document.addEventListener('click', (e) => {
+    //   if (e.target.href === CTA_URL && e.target.id !== "ureka-cta") {
+    //     console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //     logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+    //     console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //   }
+    // })
 
-    document.addEventListener('ureka_cta_clicked', (e) => {
-      console.log('ureka_cta_clicked', e);
-    })
+    // document.addEventListener('ureka_cta_clicked', (e) => {
+    //   console.log('ureka_cta_clicked', e);
+    // })
 
 
-    document.addEventListener('scroll', (e) => {
-      if(isInViewport(reviewsTriggerBtn) && !UREKA_BTN_FOCUSED) {
-        console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        logUrekaBtnFocus(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())        
-        console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        UREKA_BTN_FOCUSED = true;
-      }
-    })
+    // document.addEventListener('scroll', (e) => {
+    //   if(isInViewport(reviewsTriggerBtn) && !UREKA_BTN_FOCUSED) {
+    //     console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //     logUrekaBtnFocus(window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())        
+    //     console.log('Ureka Button in Focus', window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //     UREKA_BTN_FOCUSED = true;
+    //   }
+    // })
 
     // advanced_mode_checkbox.addEventListener('click', (e) => {
     //   is_advanced_mode = !is_advanced_mode
@@ -361,8 +361,8 @@ const getLocationFromIP = async () => {
   );
   const data = await res?.json();
   console.log(data);
-  console.log(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
-  logDemographics(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString())
+  // console.log(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
+  // logDemographics(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString())
   MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
   // else throw new Error(data?.error?.info);
 };
@@ -472,9 +472,9 @@ async function fetchReviews() {
       
       console.log('REVIEWS SHOWN', ascending_reviews.length);
       
-      console.log('REVIEWS SHOWN', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      logReviewsShown(ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-      console.log('REVIEWS SHOWN logged', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      // console.log('REVIEWS SHOWN', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      // logReviewsShown(ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+      // console.log('REVIEWS SHOWN logged', ascending_reviews.length, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
 
       for (var i = 0; i < ascending_reviews.length; i += 3) {
         // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
@@ -493,9 +493,9 @@ async function fetchReviews() {
       const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
       reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
       console.log('REVIEWS SHOWN', 3);
-      console.log('REVIEWS SHOWN', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      logReviewsShown(3, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-      console.log('REVIEWS SHOWN logged', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      // console.log('REVIEWS SHOWN', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+      // logReviewsShown(3, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+      // console.log('REVIEWS SHOWN logged', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
     }
 
     // reviewsContent.innerHTML = ''
@@ -505,22 +505,22 @@ async function fetchReviews() {
     // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
 
 
-    try {
-    document.addEventListener('click', (e) => {
-      if(e.target.id === "ureka-cta") {
-        // const event = new Event('ureka_cta_clicked');
-        // document.dispatchEvent(event)
-        console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-        console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      } else if (e.target.href === CTA_URL) {
-        console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-        logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
-        console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
-      }
-    })
-    } catch(e) {
-          console.log(e);
-      }
+    // try {
+    // document.addEventListener('click', (e) => {
+    //   if(e.target.id === "ureka-cta") {
+    //     // const event = new Event('ureka_cta_clicked');
+    //     // document.dispatchEvent(event)
+    //     console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //     logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+    //     console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //   } else if (e.target.href === CTA_URL) {
+    //     console.log('Other CTA Click', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //     logUrekaCtaClick(false, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+    //     console.log('Other CTA Click logged', false, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+    //   }
+    // })
+    // } catch(e) {
+    //       console.log(e);
+    //   }
   }, 3000)
 }
