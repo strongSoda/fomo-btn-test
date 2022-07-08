@@ -6,6 +6,7 @@ const REVIEWS = [
     lat: "49.6881314",
     lng: "6.6185184",
     city: "Fh Trier-Environmental Campus, Germany",
+    img: "https://i.imgur.com/jWb1kUr.jpg",
   },
   {
     id: 1,
@@ -14,6 +15,7 @@ const REVIEWS = [
     lat: "49.6881314",
     lng: "6.6185184",
     city: "Eberswalde University, Germany",
+    img: "https://i.imgur.com/h1vlZi7.jpg",
   },
   {
     id: 2,
@@ -22,5 +24,6 @@ const REVIEWS = [
     lat: "49.6881314",
     lng: "6.6185184",
     city: "Bonner Verein für Gesundheit, Germany",
+    img: "https://i.imgur.com/Crjpnh8.jpg",
   },
 ];
