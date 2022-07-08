@@ -202,7 +202,7 @@ function buidReviewsDom(reviews, active=true) {
     review_author_h5.classList.add("review_author");
     review_author_h5.classList.add("mb-3");
     review_city.classList.add('review_city');
-    review_source_img.classList.add('review_source_img');
+    // review_source_img.classList.add('review_source_img');
     review_author_img.classList.add('review_author_img')
     review_author_img.classList.add('rounded-circle', 'shadow-1-strong', 'mb-4')
     // review_source_img.classList.add('rounded-circle', 'shadow-1-strong', 'mb-4');
