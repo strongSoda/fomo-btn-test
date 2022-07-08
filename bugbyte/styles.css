@@ -5433,3 +5433,6 @@ input:checked+.slider:before {
   height: 20px;
   border-radius: 200px;
 } */
+#ureka-modal br {
+  display: none;
+}
