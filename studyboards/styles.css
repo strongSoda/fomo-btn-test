@@ -5426,3 +5426,6 @@ input:checked+.slider:before {
 .ureka-modal-control {
   color: #29a329;
 }
+.review_text {
+  font-size: 16px;
+}
