@@ -49,7 +49,9 @@ let is_advanced_mode = false;
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     const reviewsTriggerBtn = document.getElementById("reviews-tigger-btn");
-    reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
+    // reviewsTriggerBtn.insertAdjacentHTML('afterend', modalWrapper)
+    document.body.insertAdjacentHTML('beforeend', modalWrapper)
+
     reviewsTriggerBtn.addEventListener('click', (e) => {
       fetchReviews()
     })
@@ -302,6 +304,33 @@ async function fetchReviews() {
     // reviewsContent.appendChild(reviews_container)
     reviewsContent.appendChild(createElementFromHTML(carousel_controls))
     // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
+
+
+  try {
+    document.addEventListener('click', (e) => {
+      if(e.target.id === "ureka-cta") {
+        // const event = new Event('ureka_cta_clicked');
+        // document.dispatchEvent(event)
+        // console.log('Ureka CTA Click', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        // logUrekaCtaClick(true, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+        // console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+        
+        const modal = document.querySelector("#ureka-modal");
+        const backdrop = document.querySelector(".modal-backdrop");
+        modal.classList.toggle("show");
+        backdrop.classList.toggle("show");
+        document.body.classList.toggle('modal-open')
+        setTimeout(() => {
+          modal.style.display = "none";
+          modal.ariaHidden = "true";
+          backdrop.remove()
+          window.location.href = CTA_URL;
+        }, 500)
+      }
+    })
+    } catch(e) {
+       console.log(e);
+      }
   }, 3000)
 
   // setTimeout(() => {
