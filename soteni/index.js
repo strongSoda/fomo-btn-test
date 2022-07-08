@@ -98,7 +98,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                             </div>`
 
                             
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href=href="${CTA_URL}">Donate</a>`
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Donate</a>`
 
 let MY_LOCATION = null
 
