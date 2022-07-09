@@ -304,7 +304,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href='#contactForm' onclick="arguments[0].preventDefault();document.getElementById('contactForm').scrollIntoView()">Write to us now</button>`
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href='#contactForm' onclick="arguments[0].preventDefault();document.getElementById('contactForm').scrollIntoView();hideModal();">Write to us now</button>`
 
 let MY_LOCATION = null
 
@@ -525,6 +525,20 @@ async function fetchReviews() {
   }, 3000)
 }
 
-// function redirect() {
-//   window.location.href= CTA_URL
-// }
+function hideModal() {
+  // console.log('Ureka CTA Click', true, document.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+  // logUrekaCtaClick(true, document.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
+  // console.log('Ureka CTA Click logged', true, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
+  const modal = document.querySelector("#ureka-modal");
+  const backdrop = document.querySelector(".modal-backdrop");
+  modal.classList.toggle("show");
+  backdrop.classList.toggle("show");
+  document.body.classList.toggle('modal-open')
+  setTimeout(() => {
+    modal.style.display = "none";
+    modal.ariaHidden = "true";
+    backdrop.remove();
+    // window.location.href = CTA_URL;
+  }, 500)
+}
+
