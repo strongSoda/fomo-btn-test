@@ -304,7 +304,7 @@ const carousel_controls = `<div class="d-flex justify-content-between mb-4 posit
                                 </a>
                             </div>`
 
-const ctaBtn = `<button id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" onClick="location.href= 'https://studyboards.net/#contactForm'">Write to us now</button>`
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href='#contactForm' onclick="arguments[0].preventDefault();document.getElementById('contactForm').scrollIntoView()">Write to us now</button>`
 
 let MY_LOCATION = null
 
