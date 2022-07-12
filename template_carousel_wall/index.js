@@ -245,7 +245,7 @@ async function fetchReviews() {
       ascending_reviews.sort((a,b) => a.distance - b.distance) // b - a for reverse sort
       // console.log('ascending', ascending_reviews); // b - a for reverse sort
       
-      for (var i = 0; i+3 < ascending_reviews.length; i += 3) {
+      for (var i = 0; i < ascending_reviews.length; i += 3) {
         // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
         const three_reviews = [ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]]
         if(i===0) {
