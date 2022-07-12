@@ -1,0 +1,36 @@
+const REVIEWS = [
+  {
+    id: 0,
+    author: "Ellen C",
+    text: "Very good music school, courtesy employees, great teacher. My kid enjoys learning from Ms. Yvonne for piano. He is now happier and more confident after attending here.",
+    img: "https://i.imgur.com/e3AQP0L.png",
+    lat: "33.87449",
+    lng: "-118.37203",
+    zip: "90278",
+    city: "Redondo Beach",
+    source:  "GOOG",
+  },
+  {
+    id: 1,
+    author: "Dushan Wickremasinghe",
+    text: "My kids joined this place for music lessons years ago. Teachers are good too. That's why my kids are still taking music lessons from the same place.",
+    img: "https://i.imgur.com/Lrr6hoA.png",
+    lat: "33.87449",
+    lng: "-118.37203",
+    zip: "90278",
+    city: "Redondo Beach",
+    source:  "GOOG",
+  },
+  {
+    id: 2,
+    author: "Mary Elias",
+    text: "Great music school for all ages. They are very flexible and very helpful.",
+    img: "https://i.imgur.com/vkyn8iS.png",
+    lat: "33.87449",
+    lng: "-118.37203",
+    zip: "90278",
+    city: "Redondo Beach",
+    source:  "GOOG",
+  },
+];
+
