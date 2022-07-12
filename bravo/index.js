@@ -145,6 +145,7 @@ const getLocationFromIP = async () => {
 };
 
 function buidReviewsDom(reviews, active=true) {
+  // console.log('here', reviews);
   const carousel_item = document.createElement("div");
   carousel_item.classList.add("carousel-item");
   if(active) {
@@ -193,6 +194,7 @@ function buidReviewsDom(reviews, active=true) {
 }
 
 async function fetchReviews() {
+  // console.log('debug', 'fetching reviews');
   const reviewsContent = document.querySelector(".carousel-inner");
   const loadingText = document.querySelector(".fomo-wall-title");
   const fomoWallFooter = document.getElementById('fomo-wall-footer');
@@ -231,6 +233,7 @@ async function fetchReviews() {
   }
 
   setTimeout(() => {
+    // console.log('debug', 'settimeout');
     loadingText.innerHTML = 'Reviews from your neighbors'
     reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
@@ -245,9 +248,11 @@ async function fetchReviews() {
       ascending_reviews.sort((a,b) => a.distance - b.distance) // b - a for reverse sort
       // console.log('ascending', ascending_reviews); // b - a for reverse sort
       
-      for (var i = 0; i+3 < ascending_reviews.length; i += 3) {
-        // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
+      for (var i = 0; i < ascending_reviews.length; i += 3) {
+        // console.log('here');
+        console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
         const three_reviews = [ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]]
+        // console.log('debug loop over set of reviews', i);
         if(i===0) {
           reviewsContent.appendChild(buidReviewsDom(three_reviews, true))
         } else {
@@ -256,6 +261,7 @@ async function fetchReviews() {
         // or console.log(array.slice(i, 3));
       }
     } else {
+      // console.log('no location random reviews');
       const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
       reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
     }
@@ -264,6 +270,7 @@ async function fetchReviews() {
     // console.log(reviews_container);
     // reviewsContent.appendChild(reviews_container)
     reviewsContent.appendChild(createElementFromHTML(carousel_controls))
+    // console.log(reviewsContent);
     // reviewsContent.insertAdjacentHTML('afterend', ctaBtn)
   }, 1500)
 
