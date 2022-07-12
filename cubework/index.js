@@ -123,7 +123,7 @@ const logUrekaCtaClick = async (ureka, currenturl, date, time, utcTime) => {
       time: time,
       ureka: ureka,
       utcTime: utcTime,
-      ctaCity: DEMOGRAPHICS_DATA.city
+      ctaCity: DEMOGRAPHICS_DATA ? DEMOGRAPHICS_DATA.city : 'N/A'
     }
   }
   console.log('###############', body, url, );
