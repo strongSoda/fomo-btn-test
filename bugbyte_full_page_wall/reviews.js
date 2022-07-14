@@ -104,5 +104,3 @@ const REVIEWS = [
     rating: 5,
   },
 ];
-
-
