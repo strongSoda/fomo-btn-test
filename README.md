@@ -230,3 +230,67 @@ const ctaBtn = ...
 1. sheety
 2. google analytics
 3. microsoft clarity (session replay)
+
+## Full Page Wall
+
+### Steps for adding a new client
+
+1. Copy and rename the `template_full_page_wall/` folder
+2. Update the `reviews` in reviews.js file for new client. (lat, lng, name, text, city, profile_pic, logo, id, rating, date). Can get lat/long from zip from a site like [this one](https://www.freemaptools.com/convert-us-zip-code-to-lat-lng.htm).
+3. Update the button, links color, font, size in `styles.css` in the new client folder as desired
+
+```css
+.load-more-reviews-btn {
+  background-color: #003366;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.8em 2em;
+  cursor: pointer;
+}
+
+.load-more-reviews-btn:hover {
+  background-color: #fff;
+  border: 1px solid #003366;
+  color: #003366;
+  transition: 0.3s;
+}
+```
+
+Change the CTA link:
+
+```javascript
+const CTA_URL = "";
+```
+
+and text:
+
+```
+const ctaBtn = ...
+```
+
+5. Get the plugin code to embed for new client by substituting value for `client_folder_name` in the following template at all appropriate places. This will work after code is in master branch.
+
+```html
+<!-- FOMO Wall -->
+<!-- Paste this code at the place you want the button to appear -->
+<link
+  href="https://fomobutton.netlify.app/{client_folder_name}/styles.css"
+  rel="stylesheet"
+/>
+<div id="fomo-wall" data-site-id="{client_folder_name}"></div>
+<script src="https://fomobutton.netlify.app/{client_folder_name}/reviews.js"></script>
+<script src="https://fomobutton.netlify.app/{client_folder_name}/index.js"></script>
+<!-- FOMO Wall -->
+<!-- --------- END --------- -->
+```
+
+### Post wall installation setup
+
+1. sheety
+2. google analytics
+3. microsoft clarity (session replay)
