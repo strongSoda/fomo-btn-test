@@ -5404,7 +5404,6 @@ input:checked+.slider:before {
 }
 #reviews-tigger-btn, #ureka-cta {
   background-color: #8075B9;
-  color: #fff;
   border: none;
   padding: .8em 2em;
   font-style: normal;
@@ -5426,3 +5425,11 @@ input:checked+.slider:before {
 .ureka-modal-control {
   color: #29a329;
 }
+.review_source_img {
+  position: absolute;
+  left: 25%;
+}
+/* .review_author_img {
+  height: 20px;
+  border-radius: 200px;
+} */
