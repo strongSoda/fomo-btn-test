@@ -80,7 +80,7 @@ function createElementFromHTML(htmlString) {
   return div.firstChild;
 }
 
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Book Call</a>`
+const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Book a Call</a>`
 
 const carousel_controls = `<div class="d-flex justify-content-between mb-4 position-relative">
                                 <a class="fomo-wall-container-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">

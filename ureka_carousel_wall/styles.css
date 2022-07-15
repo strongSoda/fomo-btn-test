@@ -5420,7 +5420,7 @@ input:checked+.slider:before {
 #fomo-wall {
   width: 100%;
   overflow: hidden;
-  font-family: inherit, "Lato", Arial, sans-serif;
+  font-family:  "Lato", Arial, sans-serif;
 }
 .fomo-wall-body {
   /* min-height:calc(100% - (0.5rem * 5)); */
@@ -5447,5 +5447,9 @@ input:checked+.slider:before {
 .fomo-wall-content {
   font-family: inherit, 'Forum', cursive;
   font-size: 20px;
+  /* background-color: transparent; */
+}
+#fomo-wall .fomo-wall-content .review_text{
+  font-size: 16px;
   /* background-color: transparent; */
 }
