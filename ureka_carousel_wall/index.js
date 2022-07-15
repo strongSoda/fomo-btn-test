@@ -33,7 +33,7 @@ const modalWrapper = `
   <p class="my-2">Advanced Matching</p>
 </div> */}
 
-const CTA_URL = "#";
+const CTA_URL = "https://ureka-plugin.carrd.co/#pricing";
 const SOURCES = {"PH": "https://cdn-icons-png.flaticon.com/512/2111/2111581.png", "GOOGLE": "https://services.google.com/fh/files/misc/google_g_icon_download.png"}
 
 const loadingBox = `<div class="cssload-box-loading"></div>`;
@@ -83,10 +83,10 @@ function createElementFromHTML(htmlString) {
 const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Book a Call</a>`
 
 const carousel_controls = `<div class="d-flex justify-content-between mb-4 position-relative">
-                                <a class="fomo-wall-container-control position-relative" href="#" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
+                                <a class="fomo-wall-container-control position-relative" href="#" onclick="return false;" role="button" data-slide="prev" data-target="#carouselMultiItemExample">
                                   <i class="fas fa-angle-left pe-2"></i>&nbsp;<span>Previous</span>
                                 </a>
-                                <a class="fomo-wall-container-control position-relative" href="#" role="button" data-slide="next" data-target="#carouselMultiItemExample">
+                                <a class="fomo-wall-container-control position-relative" href="#" onclick="return false;" role="button" data-slide="next" data-target="#carouselMultiItemExample">
                                   <span>Next</span>&nbsp;<i class="fas fa-angle-right pe-2" role="img" class="md hydrated"
                                         aria-label="chevron back outline"></i>
                                 </a>
