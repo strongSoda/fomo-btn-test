@@ -33,7 +33,7 @@ const modalWrapper = `
   <p class="my-2">Advanced Matching</p>
 </div> */}
 
-const CTA_URL = "https://ureka-plugin.carrd.co/#pricing";
+const CTA_URL = "https://ureka.io/#consult";
 const SOURCES = {"PH": "https://cdn-icons-png.flaticon.com/512/2111/2111581.png", "GOOGLE": "https://services.google.com/fh/files/misc/google_g_icon_download.png"}
 
 const loadingBox = `<div class="cssload-box-loading"></div>`;
