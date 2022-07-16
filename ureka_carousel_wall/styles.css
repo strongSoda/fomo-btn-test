@@ -5420,7 +5420,7 @@ input:checked+.slider:before {
 #fomo-wall {
   width: 100%;
   overflow: hidden;
-  font-family:  "Lato", Arial, sans-serif;
+  font-family:  "Forum", Arial, sans-serif;
 }
 .fomo-wall-body {
   /* min-height:calc(100% - (0.5rem * 5)); */
@@ -5450,7 +5450,7 @@ input:checked+.slider:before {
   /* background-color: transparent; */
 }
 #fomo-wall .fomo-wall-content .review_text{
-  font-size: 16px;
+  font-size: 20px;
   /* background-color: transparent; */
 }
 .review_author_img {
