@@ -5453,3 +5453,16 @@ input:checked+.slider:before {
   font-size: 16px;
   /* background-color: transparent; */
 }
+.review_author_img {
+  /* height: 100px; */
+  width: 100px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .fomo-wall-title {
+    font-size: 1.3em !important;
+  }
+}
+.fomo-wall-container-control {
+  font-size: .7em !important;
+}
