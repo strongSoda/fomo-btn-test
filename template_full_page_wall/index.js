@@ -72,6 +72,30 @@ const appendFomoWall = (fomo_wall) => {
     FOMO_WALL_CONTAINER.appendChild(fomo_wall)
 }
 
+const CTA_URL = "https://ureka.io/#consult";
+const loadingBox = `<div class="cssload-box-loading"></div>`;
+let is_advanced_mode = false;
+// let is_advanced_mode = localStorage.getItem("is_advanced_mode");
+
+
+function createElementFromHTML(htmlString) {
+  var div = document.createElement('div');
+  div.innerHTML = htmlString;
+
+  // Change this to div.childNodes to support multiple top-level nodes.
+  return div.firstChild;
+}
+
+const ctaBtn = `
+        <div class="load-more-reviews">
+            <a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto load-more-reviews-btn" href="${CTA_URL}">Get Started</a>
+        </div>`
+
+const ureka_cta = document.getElementById('ureka-cta');
+  if(!ureka_cta) {
+    FOMO_WALL_CONTAINER.insertAdjacentHTML('beforebegin', ctaBtn);
+}
+
 let reviews_index = 0
 
 const getIpAddressLocation = async () => {
@@ -168,22 +192,6 @@ LOAD_MORE_REVIEWS.addEventListener('click', () => {
   </label>
   <p class="my-2">Advanced Matching</p>
 </div> */}
-
-const CTA_URL = "#";
-const loadingBox = `<div class="cssload-box-loading"></div>`;
-let is_advanced_mode = false;
-// let is_advanced_mode = localStorage.getItem("is_advanced_mode");
-
-
-function createElementFromHTML(htmlString) {
-  var div = document.createElement('div');
-  div.innerHTML = htmlString;
-
-  // Change this to div.childNodes to support multiple top-level nodes.
-  return div.firstChild;
-}
-
-const ctaBtn = `<a id="ureka-cta" type="button" style="text-decoration:none;" class="btn btn-primary mx-auto" href="${CTA_URL}">Get Creative</a>`
 
 
 // const getLocationFromBrowser = async () => {
