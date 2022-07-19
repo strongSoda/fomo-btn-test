@@ -152,13 +152,19 @@ const getLocationFromBrowser = async () => {
 };
 
 const getLocationFromIP = async () => {
-  const res = await fetch(
-    "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
-  );
-  const data = await res?.json();
-  // console.log(data);
-  MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
-  // else throw new Error(data?.error?.info);
+  try {
+    const res = await fetch(
+      "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
+    );
+    const data = await res?.json();
+    // console.log(data);
+    MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
+    // else throw new Error(data?.error?.info);
+  }
+  catch (error) {
+    console.log(error);
+    MY_LOCATION = false
+  }
 };
 
 function buidReviewsDom(reviews, active=true) {
@@ -184,10 +190,10 @@ function buidReviewsDom(reviews, active=true) {
     const review_source_img = document.createElement("img");
 
     review_text.innerHTML = '<i class="fas fa-quote-left pe-2"></i>&nbsp;' + r.text + '&nbsp;<i class="fas fa-quote-right pe-2"></i>'
-    review_author_h5.innerHTML = r.author;
+    review_author_h5.innerHTML = r.name;
     review_city.innerHTML = r.city;
-    review_author_img.src = r.img;
-    review_source_img.src = SOURCES[r.source]
+    review_author_img.src = r.profile_pic;
+    review_source_img.src = r.logo
 
     col_lg_4.appendChild(review_author_img)
     col_lg_4.appendChild(review_source_img)
@@ -295,8 +301,15 @@ async function fetchReviews() {
         // or console.log(array.slice(i, 3));
       }
     } else {
-      const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
-      reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
+        for (var i = 0; i < reviews.length; i += 3) {
+          // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
+          const three_reviews = [reviews[i], reviews[i+1], reviews[i+2]]
+          if(i===0) {
+            reviewsContent.appendChild(buidReviewsDom(three_reviews, true))
+          } else {
+            reviewsContent.appendChild(buidReviewsDom(three_reviews, false))
+          }
+        }
     }
 
     // reviewsContent.innerHTML = ''

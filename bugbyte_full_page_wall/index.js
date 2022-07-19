@@ -75,13 +75,19 @@ const appendFomoWall = (fomo_wall) => {
 let reviews_index = 0
 
 const getIpAddressLocation = async () => {
-    const res = await fetch(
-        "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
-    );
-    const data = await res?.json();
-    // console.log(data);
-    return { lat: data?.latitude, lng: data?.longitude }
-    // else throw new Error(data?.error?.info);
+    try {
+        const res = await fetch(
+            "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
+        );
+        const data = await res?.json();
+        // console.log(data);
+        return { lat: data?.latitude, lng: data?.longitude }
+        // else throw new Error(data?.error?.info);
+    }
+    catch (err) {
+        console.log(err);
+        return false
+    }
 };
 
 // sort reviews by closest to ip address location
@@ -89,6 +95,9 @@ const sortReviews = async (reviews) => {
     const ascending_reviews = JSON.parse(JSON.stringify(reviews))
     // get ip address location
     const ip_address_location = await getIpAddressLocation()
+    if(!ip_address_location) {
+        return reviews
+    }
     // sort reviews by distance from ip address location
     ascending_reviews.sort((a, b) => {
         // get distance from ip address location to review location
