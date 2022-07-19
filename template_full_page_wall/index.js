@@ -99,20 +99,33 @@ const ureka_cta = document.getElementById('ureka-cta');
 let reviews_index = 0
 
 const getIpAddressLocation = async () => {
-    const res = await fetch(
-        "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
-    );
-    const data = await res?.json();
-    // console.log(data);
-    return { lat: data?.latitude, lng: data?.longitude }
+    console.log('here 2');
+    try {
+        const res = await fetch(
+            "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
+        );
+        const data = await res?.json();
+        console.log('data', data);
+        // console.log(data);
+        return { lat: data?.latitude, lng: data?.longitude }
+    }
+    catch (err) {
+        console.log(err);
+        return false
+    }
     // else throw new Error(data?.error?.info);
 };
 
 // sort reviews by closest to ip address location
 const sortReviews = async (reviews) => {
+    console.log('here');
     const ascending_reviews = JSON.parse(JSON.stringify(reviews))
     // get ip address location
     const ip_address_location = await getIpAddressLocation()
+    if(!ip_address_location) {
+        return reviews
+    }
+    console.log('ip_address_location', ip_address_location);
     // sort reviews by distance from ip address location
     ascending_reviews.sort((a, b) => {
         // get distance from ip address location to review location
@@ -122,6 +135,8 @@ const sortReviews = async (reviews) => {
         return distance_a - distance_b
     })
     console.log('sorted', reviews);
+
+    console.log('ascending_reviews', ascending_reviews);
     return ascending_reviews
 }
 
@@ -169,7 +184,7 @@ sortReviews(REVIEWS).then(ascending_reviews => {
 })
 
 // load more reviews
-const LOAD_MORE_REVIEWS = document.querySelector('#load-more-reviews')
+const LOAD_MORE_REVIEWS = document.querySelector('#load-more-reviews-btn')
 LOAD_MORE_REVIEWS.addEventListener('click', () => {
     console.log('load more reviews');
     if(reviews_index < REVIEWS.length) {
