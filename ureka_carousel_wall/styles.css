@@ -5422,12 +5422,6 @@ input:checked+.slider:before {
   overflow: hidden;
   font-family:  "Forum", Arial, sans-serif;
 }
-.fomo-wall-body {
-  /* min-height:calc(100% - (0.5rem * 5)); */
-    min-height: 75vh;
-  /* height: auto; */
-  /* height: 60%; */
-}
 /* colors */
 /* controls, author name */
 .fomo-wall-container-control, .review_author {
@@ -5463,6 +5457,19 @@ input:checked+.slider:before {
     font-size: 1.3em !important;
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .fomo-wall-body {
+    min-height: 75vh;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .fomo-wall-body {
+    min-height: 35vh;
+  }
+}
+
 .fomo-wall-container-control {
   font-size: .7em !important;
 }
