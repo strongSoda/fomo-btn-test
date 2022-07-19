@@ -8,7 +8,7 @@ const wallWrapper = `
         
         <!-- load more reviews -->
         <div class="load-more-reviews">
-            <button class="load-more-reviews-btn">Load More Reviews</button>
+            <button id="load-more-reviews-btn" class="load-more-reviews-btn">Load More Reviews</button>
         </div>
 `
 
@@ -169,7 +169,7 @@ sortReviews(REVIEWS).then(ascending_reviews => {
 })
 
 // load more reviews
-const LOAD_MORE_REVIEWS = document.querySelector('.load-more-reviews')
+const LOAD_MORE_REVIEWS = document.querySelector('#load-more-reviews')
 LOAD_MORE_REVIEWS.addEventListener('click', () => {
     console.log('load more reviews');
     if(reviews_index < REVIEWS.length) {
