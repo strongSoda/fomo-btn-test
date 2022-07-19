@@ -338,17 +338,23 @@ const getLocationFromBrowser = async () => {
 };
 
 const getLocationFromIP = async () => {
-  const res = await fetch(
-    "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
-  );
-  const data = await res?.json();
-  console.log(data);
-  DEMOGRAPHICS_DATA=data;
-  console.log('DEMOGRAPHICS', data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
-  logDemographics(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString())
-  console.log('DEMOGRAPHICS logged', data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
-  MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
-  // else throw new Error(data?.error?.info);
+  try {
+    const res = await fetch(
+      "https://api.ipstack.com/check?access_key=31d2eff2fab302c3d8c4cca4945c8faf&format=1"
+    );
+    const data = await res?.json();
+    console.log(data);
+    DEMOGRAPHICS_DATA=data;
+    console.log('DEMOGRAPHICS', data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
+    logDemographics(data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString())
+    console.log('DEMOGRAPHICS logged', data?.city, data?.continent_name, data?.latitude, data?.longitude, data?.country_name, data?.ip, data?.region_name, data?.zip, data?.time_zone?.code, data?.time_zone?.id, data?.currency?.code, new Date().toUTCString());
+    MY_LOCATION = {coords: {latitude: data?.latitude, longitude: data?.longitude}}
+    // else throw new Error(data?.error?.info);
+  } 
+  catch (error) {
+    console.log(error);
+    MY_LOCATION = false
+  }
 };
 
 function buidReviewsDom(reviews, active=true) {
@@ -452,9 +458,17 @@ async function fetchReviews() {
         }
         // or console.log(array.slice(i, 3));
       }
-    } else {
-      const threeRandomReviews = REVIEWS.sort(() => .5 - Math.random()).slice(0,3)
-      reviewsContent.appendChild(buidReviewsDom(threeRandomReviews))
+    } 
+    else {
+      for (var i = 0; i < JSON.parse(JSON.stringify(reviews)).length; i += 3) {
+        // console.log(ascending_reviews[i], ascending_reviews[i+1], ascending_reviews[i+2]);
+        const three_reviews = [JSON.parse(JSON.stringify(reviews))[i], JSON.parse(JSON.stringify(reviews))[i+1], JSON.parse(JSON.stringify(reviews))[i+2]]
+        if(i===0) {
+          reviewsContent.appendChild(buidReviewsDom(three_reviews, true))
+        } else {
+          reviewsContent.appendChild(buidReviewsDom(three_reviews, false))
+        }
+      }
 
       console.log('REVIEWS SHOWN', 3, window.location.href, new Date().toDateString(), new Date().toLocaleTimeString(), 'UTC', new Date().toUTCString());
       logReviewsShown(3, window.location.href, new Date().toDateString(), new Date().toTimeString(), new Date().toUTCString())
@@ -486,7 +500,7 @@ async function fetchReviews() {
   } catch(e) {
     console.log(e);
   }
-  }, 3000)
+  }, 1200)
 
   // setTimeout(() => {
   //   if(!modal.classList.contains('show')) {
