@@ -149,3 +149,7 @@
     min-width: 100%;
   }
 }
+
+.review_author {
+  text-align: center;
+}

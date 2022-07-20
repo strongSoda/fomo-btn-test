@@ -32,7 +32,7 @@ const createReviewsRow = (reviews) => {
         review_card.innerHTML = `
             <div class="responsive_card border-shadow">
                 <img class="rounded-avatar" src="${review.profile_pic}" alt="">
-                <h2>${review.name}</h2>
+                <h2 class="review_author">${review.name}</h2>
                 <div>
                     ${Array(review.rating).fill('⭐️').join('')}
                 </div>
