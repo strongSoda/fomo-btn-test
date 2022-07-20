@@ -2,7 +2,9 @@ const wallWrapper = `
         <!-- black browser window img -->
         <div class="fomo-wall-header">
         </div>
-        <h2 class="fomo-wall-title center">Ureka Reviews Full Page Wall Widget</h2>
+<!-- remove title
+<h2 class="fomo-wall-title center">Ureka Reviews Full Page Wall Widget</h2>
+-->
         <div class="fomo-wall-container">
         </div>
         

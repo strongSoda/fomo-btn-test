@@ -115,7 +115,7 @@
   /* width: 100%; */
   /* height: 100%; */
   /* dark blue background */
-  background-color: #003366;
+  background-color: #EBA95A;
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
@@ -130,7 +130,7 @@
 .load-more-reviews-btn:hover {
   background-color: #fff;
   border: 1px solid #003366;
-  color: #003366;
+  color: #EBA95A;
   transition: 0.3s;
 }
 
