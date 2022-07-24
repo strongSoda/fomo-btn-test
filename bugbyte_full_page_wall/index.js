@@ -12,6 +12,7 @@ const wallWrapper = `
         <div class="load-more-reviews">
             <button class="load-more-reviews-btn">Load More Reviews</button>
         </div>
+        <footer>Powered by <a href="https://ureka.io/?ref=co" target="_blank">Ureka.io</a></footer>
 `
 
 const wallParent = document.querySelector('#fomo-wall')

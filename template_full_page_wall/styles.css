@@ -158,3 +158,7 @@
 .load-more-reviews-btn {
   font-family: inherit, 'Roboto', sans-serif;
 }
+footer {
+  font-size: 14px;
+  text-align: center;
+}
