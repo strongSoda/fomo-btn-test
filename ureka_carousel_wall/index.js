@@ -254,7 +254,7 @@ async function fetchReviews() {
   }
 
   setTimeout(() => {
-    loadingText.innerHTML = 'Reviews from your neighbors'
+    loadingText.innerHTML = 'Reviews from people nearby'
     reviewsContent.innerHTML = ''
     const reviews = JSON.parse(JSON.stringify(REVIEWS));    
     let reviews_container
