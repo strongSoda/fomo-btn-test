@@ -5421,6 +5421,7 @@ input:checked+.slider:before {
   width: 100%;
   overflow: hidden;
   font-family: "Lato", Arial, sans-serif;
+  z-index: 1010;
 }
 .fomo-wall-body {
   /* min-height:calc(100% - (0.5rem * 5)); */
